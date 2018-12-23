@@ -1,15 +1,10 @@
 #include <Windows.h>
 #include <iostream>
-#include <thread>
 
+#include "Client.hpp"
+#include "Memory/Offsets.hpp"
 
-#include "Memory/Offsets.h"
-
-#include "Game/GSuperMeatBoy.h"
-#include "Game/Renderer.hpp"
-#include "Hooks/Hooks.h"
-
-
+#include "Hooks/Hooks.hpp"
 
 
 BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
@@ -25,11 +20,10 @@ BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 
 			printf("Witam\n");
 
-			//CreateThread(NULL,0,thread,NULL,0,NULL);
-
+			Client::setInstance(hinstDLL);
 
 			Offsets::init();
-			initHooks();
+			Hooks::Init();
 		} break;
 		case DLL_PROCESS_DETACH:
 		{

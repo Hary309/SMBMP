@@ -1,6 +1,6 @@
 #include "Hooks.hpp"
 
-#include <DxErr.h>
+#include <windows.h>
 
 #include "Memory/Offsets.hpp"
 #include "Memory/MemMgr.hpp"
@@ -8,16 +8,10 @@
 #include "Game/Renderer.hpp"
 #include "Game/GSuperMeatBoy.hpp"
 
-struct CUSTOMVERTEX { FLOAT X, Y, Z, RHW; DWORD COLOR; };
-#define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)
-
+#include "Common.hpp"
 
 IDirect3DTexture9 *texture;
 ID3DXSprite *sprite = nullptr;
-
-
-uintptr_t RendererAddrCall;
-uintptr_t RendererAddrRetn;
 
 
 int (WINAPIV * __vsnprintf)(char *, size_t, const char*, va_list) = _vsnprintf;
@@ -36,15 +30,16 @@ const char * GetDXErrorMsg(HRESULT result)
 	return error;
 }
 
+uintptr_t RendererAddrCall;
+uintptr_t RendererAddrRetn;
 
 void RenderSth()
 {
 	if (GetAsyncKeyState(VK_F5))
 	{
-		printf("%p\n", Renderer::get()->device);
-
-
-		HRESULT result = D3DXCreateTextureFromFile(Renderer::get()->device, "C:\\Projects\\SMB-MP\\src\\Release\\player.jpg", &texture);
+		HRESULT result = D3DXCreateTextureFromFile(Renderer::get()->device, GetFilePath("data/player.jpg"), &texture);
+		
+		printf("%s\n", GetFilePath("data/player.jpg"));
 
 		if (FAILED(result))
 		{
@@ -52,7 +47,6 @@ void RenderSth()
 		}
 
 		result = D3DXCreateSprite(Renderer::get()->device, &sprite);
-
 
 		if (FAILED(result))
 		{
@@ -119,19 +113,13 @@ void __declspec(naked) Asm_RendererHook()
 
 void Hook_Renderer()
 {
-
-
-
 	RendererAddrRetn = Offsets::getAddr(0x627A76);
 	RendererAddrCall = (uintptr_t)Renderer;
 
 	MemMgr::JmpHook(Offsets::getAddr(0x627A70), (uintptr_t)Asm_RendererHook);
 }
 
-void initHooks()
+void Hooks::Init()
 {
 	Hook_Renderer();
-
-	//asdf();
-
 }
