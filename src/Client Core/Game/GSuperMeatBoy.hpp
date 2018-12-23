@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Memory/Offsets.h"
+#include "Memory/Offsets.hpp"
 
 class Player
 {

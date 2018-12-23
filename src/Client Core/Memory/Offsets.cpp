@@ -1,4 +1,5 @@
-#include "Offsets.h"
+#include "Offsets.hpp"
+
 #include <Windows.h>
 #include <cstdio>
 

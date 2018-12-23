@@ -1,12 +1,12 @@
-#include "Hooks.h"
+#include "Hooks.hpp"
 
 #include <DxErr.h>
 
-#include "Memory/Offsets.h"
-#include "Memory/MemMgr.h"
+#include "Memory/Offsets.hpp"
+#include "Memory/MemMgr.hpp"
 
 #include "Game/Renderer.hpp"
-#include "Game/GSuperMeatBoy.h"
+#include "Game/GSuperMeatBoy.hpp"
 
 struct CUSTOMVERTEX { FLOAT X, Y, Z, RHW; DWORD COLOR; };
 #define CUSTOMFVF (D3DFVF_XYZRHW | D3DFVF_DIFFUSE)

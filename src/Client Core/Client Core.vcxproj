@@ -7,17 +7,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Common.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Memory\MemMgr.cpp" />
     <ClCompile Include="Memory\Offsets.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\GSuperMeatBoy.h" />
+    <ClInclude Include="Client.hpp" />
+    <ClInclude Include="Common.hpp" />
+    <ClInclude Include="Game\GSuperMeatBoy.hpp" />
     <ClInclude Include="Game\Renderer.hpp" />
-    <ClInclude Include="Hooks\Hooks.h" />
-    <ClInclude Include="Memory\MemMgr.h" />
-    <ClInclude Include="Memory\Offsets.h" />
+    <ClInclude Include="Hooks\Hooks.hpp" />
+    <ClInclude Include="Memory\MemMgr.hpp" />
+    <ClInclude Include="Memory\Offsets.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
