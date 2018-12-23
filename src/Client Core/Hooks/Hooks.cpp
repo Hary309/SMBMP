@@ -13,23 +13,6 @@
 IDirect3DTexture9 *texture;
 ID3DXSprite *sprite = nullptr;
 
-
-int (WINAPIV * __vsnprintf)(char *, size_t, const char*, va_list) = _vsnprintf;
-
-const char * GetDXErrorMsg(HRESULT result)
-{
-	const unsigned bufferSize = 256;
-
-	char localError[bufferSize];
-	char *error = new char[bufferSize];
-
-	sprintf_s(localError, "%s - %s", DXGetErrorString(result), DXGetErrorDescription(result));
-
-	memcpy(error, localError, bufferSize);
-
-	return error;
-}
-
 uintptr_t RendererAddrCall;
 uintptr_t RendererAddrRetn;
 
@@ -70,7 +53,6 @@ void RenderSth()
 		//printf("Unk1: %p,  Player: %p\n", GSuperMeatBoy::get()->unk1, GSuperMeatBoy::get()->unk1->player);
 	}
 }
-
 
 void Renderer()
 {

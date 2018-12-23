@@ -3,6 +3,8 @@
 #include <windows.h>
 #include <string>
 
+#include <DxErr.h>
+
 #include "Client.hpp"
 
 const char* GetFilePath(const char* path)
@@ -41,4 +43,11 @@ const char* GetFilePath(const char* path)
 	sprintf_s(result, "%s\\%s", moduleFilePath, fixedPath);
 
 	return result;
+}
+
+const char* GetDXErrorMsg(long hResult)
+{
+	char error[256];
+	sprintf_s(error, "%s - %s", DXGetErrorString(hResult), DXGetErrorDescription(hResult));
+	return error;
 }
