@@ -56,29 +56,34 @@ void RenderSth()
 
 void Renderer()
 {
-	RenderSth();
+	//RenderSth();
 
-	if (sprite)
+	//if (sprite)
+	//{
+	//	sprite->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_OBJECTSPACE);
+	//	D3DXMATRIX matrix;
+
+	//	D3DXVECTOR2 center(0.f, 0.f);
+	//	D3DXVECTOR2 scaling(0.002f, -0.002f);
+
+	//	auto camera = Costam::get()->camera;
+
+	//	//D3DXVECTOR2 pos(GSuperMeatBoy::get()->unk1->player->x / 640.f, GSuperMeatBoy::get()->unk1->player->y / 360.f);
+	//	D3DXVECTOR2 pos(0.f, -camera->pos.y * 0.006f);
+
+	//	//printf("%f %f\n", camera->posX, camera->posY);
+
+	//	D3DXMatrixTransformation2D(&matrix, NULL, NULL, &scaling, nullptr, 0, &pos);
+	//	sprite->SetTransform(&matrix);
+
+	//	sprite->Draw(texture, 0, 0, 0, D3DCOLOR_ARGB(255, 255, 255, 255));
+
+	//	sprite->End();
+	//}
+
+	if (GetAsyncKeyState(VK_F6))
 	{
-		sprite->Begin(D3DXSPRITE_ALPHABLEND | D3DXSPRITE_OBJECTSPACE);
-		D3DXMATRIX matrix;
-
-		D3DXVECTOR2 center(0.f, 0.f);
-		D3DXVECTOR2 scaling(0.002f, -0.002f);
-
-		auto camera = Costam::get()->camera;
-
-		//D3DXVECTOR2 pos(GSuperMeatBoy::get()->unk1->player->x / 640.f, GSuperMeatBoy::get()->unk1->player->y / 360.f);
-		D3DXVECTOR2 pos(0.f, -camera->posY * 0.006f);
-
-		//printf("%f %f\n", camera->posX, camera->posY);
-
-		D3DXMatrixTransformation2D(&matrix, NULL, NULL, &scaling, nullptr, 0, &pos);
-		sprite->SetTransform(&matrix);
-
-		sprite->Draw(texture, 0, 0, 0, D3DCOLOR_ARGB(255, 255, 255, 255));
-
-		sprite->End();
+		printf("%d\n", GSuperMeatBoy::get()->unk1->player->replayMgr->ghostNumber);
 	}
 }
 

@@ -19,6 +19,7 @@
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="Game\GSuperMeatBoy.hpp" />
     <ClInclude Include="Game\Renderer.hpp" />
+    <ClInclude Include="Game\Vector.hpp" />
     <ClInclude Include="Hooks\Hooks.hpp" />
     <ClInclude Include="Memory\MemMgr.hpp" />
     <ClInclude Include="Memory\Offsets.hpp" />
