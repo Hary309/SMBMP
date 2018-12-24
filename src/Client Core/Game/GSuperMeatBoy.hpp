@@ -2,18 +2,27 @@
 
 #include "Memory/Offsets.hpp"
 
+
+class ReplayManager
+{
+public:
+	char pad1[0x2C];	// +0
+	int ghostNumber;	// +44 0x2C
+};
+
 class Player
 {
 public:
-	char pad1[0x84];	// +0
-	float x;			// +132
-	float y;			// +136
-	char pad2[0x16];	// +140
-	float velocityX;	// 0x9c
-	float velocityY;	// 0xA0
-	char pad3[0x71c];	// 0x7c0
-	Player** ghosts; //Array of pointers pointing to ghosts (Kurwa tablice wskaŸników do duszków xD)
-	// [Player + 0x9DC] + 0x2C  LICZBA DUSZKÓW
+	char pad1[0x84];			// +0
+	float x;					// +132
+	float y;					// +136
+	char pad2[0x10];			// +140
+	float velocityX;			// +156 0x9C
+	float velocityY;			// +160 0xA0
+	char pad3[0x71C];			// +164 
+	Player** ghosts;			// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaŸników do duszków xD)
+	char pad4[0x218];			// +1988
+	ReplayManager* replayMgr;	// +2524 0x9DC
 };
 
 class Unk1
