@@ -1,6 +1,8 @@
 #include "Hooks.hpp"
 
 #include <windows.h>
+#include <string>
+#include <fstream>
 
 #include "Memory/Offsets.hpp"
 #include "Memory/MemMgr.hpp"
@@ -43,14 +45,14 @@ void RenderSth()
 		//GSuperMeatBoy::get()->unk1->player->x = 0.f;
 		//GSuperMeatBoy::get()->unk1->player->y = 0.f;
 
-		//Costam::get()->camera->posX = 0.f;
-		//Costam::get()->camera->posY = 0.f;
+		//SMB_dword_D6A1A0::get()->camera->posX = 0.f;
+		//SMB_dword_D6A1A0::get()->camera->posY = 0.f;
 
 		//auto plr = GSuperMeatBoy::get()->unk1->player;
 
 		//printf("[%p] Pos:(%f, %f), Ghost:(%f, %f)\n", plr, plr->x, plr->y, plr->replayX, plr->replayY);
 
-		//printf("Unk1: %p,  Player: %p\n", GSuperMeatBoy::get()->unk1, GSuperMeatBoy::get()->unk1->player);
+		//printf("Unk1: %p,  MeatBoyCharactor: %p\n", GSuperMeatBoy::get()->unk1, GSuperMeatBoy::get()->unk1->player);
 	}
 }
 
@@ -66,7 +68,7 @@ void Renderer()
 	//	D3DXVECTOR2 center(0.f, 0.f);
 	//	D3DXVECTOR2 scaling(0.002f, -0.002f);
 
-	//	auto camera = Costam::get()->camera;
+	//	auto camera = SMB_dword_D6A1A0::get()->camera;
 
 	//	//D3DXVECTOR2 pos(GSuperMeatBoy::get()->unk1->player->x / 640.f, GSuperMeatBoy::get()->unk1->player->y / 360.f);
 	//	D3DXVECTOR2 pos(0.f, -camera->pos.y * 0.006f);

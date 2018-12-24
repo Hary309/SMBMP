@@ -10,7 +10,27 @@ public:
 	int ghostNumber;	// +44 0x2C
 };
 
-class Player
+
+class RenderLayerObject
+{
+public:
+	uintptr_t vtable_RenderLayerObject;
+
+};
+
+class SceneObject : RenderLayerObject
+{
+public:
+	uintptr_t vtable_SceneObject;
+};
+
+class SceneObject2D : SceneObject
+{
+public:
+	uintptr_t vtable_SceneObject2D;
+};
+
+class MeatBoyCharactor : SceneObject2D
 {
 public:
 	char pad1[0x84];			// +0
@@ -18,10 +38,14 @@ public:
 	char pad2[0x10];			// +140
 	Vector2 velocity;			// +156 0x9C
 	char pad3[0x71C];			// +164 
-	Player** ghosts;			// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaŸników do duszków xD)
+	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaŸników do duszków xD)
 	char pad4[0x218];			// +1988
 	ReplayManager* replayMgr;	// +2524 0x9DC
 	// +2528
+};
+
+class Sprite : SceneObject2D
+{
 };
 
 class Unk1
@@ -29,14 +53,21 @@ class Unk1
 public:
 	// [[[Unk1+0x3C] + 0x34C] + 0x6DC]+0x384   TIMER
 	char pad[0x18];		// +0
-	Player* player;		// +24
+	MeatBoyCharactor* player;		// +24
 	// +28
 };
 
-class GSuperMeatBoy
+class Game
 {
 public:
-	char pad[0x64];	// +0
+	uintptr_t vTable_game;
+
+};
+
+class GSuperMeatBoy : public RenderLayerObject, Game
+{
+public:
+	char pad[0x5C];	// +0
 	Unk1* unk1;		// +100
 	// +104
 
@@ -54,16 +85,16 @@ public:
 	// +3304
 };
 
-class Costam
+class SMB_dword_D6A1A0
 {
 public:
 	char pad[32];		// +0
 	Camera* camera;		// +32
 	// +36
 
-	static Costam* get()
+	static SMB_dword_D6A1A0* get()
 	{
-		return *(Costam**)(Offsets::getAddr(0x0070A1A0));
+		return *(SMB_dword_D6A1A0**)(Offsets::getAddr(0x0070A1A0));
 	}
 
 };
