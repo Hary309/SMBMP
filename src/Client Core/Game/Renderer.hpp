@@ -5,7 +5,8 @@
 
 #include "Memory/Offsets.hpp"
 
-class Renderer // 12
+// sizeof: 12
+class Renderer
 {
 public:
 	IDirect3DDevice9* device;	// +0

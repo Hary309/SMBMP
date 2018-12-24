@@ -14,36 +14,34 @@ public:
 class RenderLayerObject
 {
 public:
-	uintptr_t vtable_RenderLayerObject;
-
+	uintptr_t vtable;
 };
 
 class SceneObject : RenderLayerObject
 {
 public:
-	uintptr_t vtable_SceneObject;
 };
 
 class SceneObject2D : SceneObject
 {
 public:
-	uintptr_t vtable_SceneObject2D;
 };
 
 class MeatBoyCharactor : SceneObject2D
 {
 public:
-	char pad1[0x84];			// +0
+	char pad1[0x80];			// +0
 	Vector2 pos;				// +132
 	char pad2[0x10];			// +140
 	Vector2 velocity;			// +156 0x9C
 	char pad3[0x71C];			// +164 
-	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaŸników do duszków xD)
+	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaï¿½nikï¿½w do duszkï¿½w xD)
 	char pad4[0x218];			// +1988
 	ReplayManager* replayMgr;	// +2524 0x9DC
 	// +2528
 };
 
+// sizeof: 240 0xF0
 class Sprite : SceneObject2D
 {
 };
