@@ -18,6 +18,8 @@
     <ClInclude Include="Client.hpp" />
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="Game\GSuperMeatBoy.hpp" />
+    <ClInclude Include="Game\Layers.hpp" />
+    <ClInclude Include="Game\Menu.hpp" />
     <ClInclude Include="Game\Renderer.hpp" />
     <ClInclude Include="Game\Vector.hpp" />
     <ClInclude Include="Hooks\Hooks.hpp" />

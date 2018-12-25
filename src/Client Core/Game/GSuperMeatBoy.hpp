@@ -6,15 +6,15 @@
 class ReplayManager
 {
 public:
-	char pad1[0x2C];	// +0
-	int ghostNumber;	// +44 0x2C
+	char pad1[0x2C];		// +0
+	int ghostsNumber;		// +44 0x2C (how many ghosts replay have
 };
 
 
 class RenderLayerObject
 {
 public:
-	uintptr_t vtable;
+	uintptr_t vtable_RenderLayerObject;
 };
 
 class SceneObject : RenderLayerObject
@@ -34,12 +34,21 @@ public:
 	Vector2 pos;				// +132
 	char pad2[0x10];			// +140
 	Vector2 velocity;			// +156 0x9C
-	char pad3[0x71C];			// +164 
-	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaï¿½nikï¿½w do duszkï¿½w xD)
-	char pad4[0x218];			// +1988
+	char pad3[0x34];			// +164 
+	void* texture;				// +216 (maybe sprite)
+	char pad4[1752];			// +220 
+	int animationType;			// +1972
+	int unk1;					// +1976
+	int unk2;					// +1980
+	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaŸników do duszków xD)
+	char pad5[0x218];			// +1988
 	ReplayManager* replayMgr;	// +2524 0x9DC
-	// +2528
+	char pad6[0x14];			// +2528
+	int characterType;			// +2548 default: 0 (DefaultMeatBoy)
+	int ghostIndex;				// +2628 
+	// +2552
 };
+
 
 // sizeof: 240 0xF0
 class Sprite : SceneObject2D
@@ -58,7 +67,7 @@ public:
 class Game
 {
 public:
-	uintptr_t vTable_game;
+	uintptr_t vtable_Game;
 
 };
 
