@@ -7,7 +7,7 @@ unsigned Offsets::baseAddr = 0;
 
 void Offsets::init()
 {
-	baseAddr = (unsigned)GetModuleHandle(0) - 0x400000;
+	baseAddr = (unsigned)GetModuleHandle(0);
 
 	printf("Offsets initialized! Base address = %X or %X\n", baseAddr, getAddr(0x00481920) - 0x00481920);
 }

@@ -15,6 +15,6 @@ public:
 
 	static Renderer* get()
 	{
-		return *(Renderer**)(Offsets::getAddr(0x00711148));
+		return *(Renderer**)(Offsets::getAddr(0x00311148));
 	}
 };

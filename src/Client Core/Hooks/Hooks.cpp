@@ -107,11 +107,13 @@ void __declspec(naked) Asm_RendererHook()
 
 void Hook_Renderer()
 {
-	RendererAddrRetn = Offsets::getAddr(0x627A76);
+	RendererAddrRetn = Offsets::getAddr(0x227A76);
 	RendererAddrCall = (uintptr_t)Renderer;
 
-	MemMgr::JmpHook(Offsets::getAddr(0x627A70), (uintptr_t)Asm_RendererHook);
+	MemMgr::JmpHook(Offsets::getAddr(0x227A70), (uintptr_t)Asm_RendererHook);
 }
+
+
 
 void Hooks::Init()
 {

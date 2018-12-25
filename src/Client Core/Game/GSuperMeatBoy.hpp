@@ -71,7 +71,7 @@ public:
 
 	static GSuperMeatBoy* get()
 	{
-		return *(GSuperMeatBoy**)(Offsets::getAddr(0x0070BF28));
+		return *(GSuperMeatBoy**)(Offsets::getAddr(0x0030BF28));
 	}
 };
 
@@ -92,7 +92,7 @@ public:
 
 	static SMB_dword_D6A1A0* get()
 	{
-		return *(SMB_dword_D6A1A0**)(Offsets::getAddr(0x0070A1A0));
+		return *(SMB_dword_D6A1A0**)(Offsets::getAddr(0x0030A1A0));
 	}
 
 };
