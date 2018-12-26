@@ -12,6 +12,12 @@ void MemMgr::JmpHook(uintptr_t addr, uintptr_t addrTo)
 {
 	UnprotectMemory(addr, 5);
 
-	*(unsigned char*)(addr) = 0xE9;
-	*(unsigned*)(addr + 1) = addrTo - (addr + 5);
+	*(uint8_t*)(addr) = 0xE9;
+	*(uintptr_t*)(addr + 1) = addrTo - (addr + 5);
+}
+
+void MemMgr::MemSet(uintptr_t addr, uint8_t value, size_t size)
+{
+	UnprotectMemory(addr, size);
+	memset((void*)addr, value, size);
 }

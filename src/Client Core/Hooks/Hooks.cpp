@@ -75,5 +75,8 @@ void Hooks::Init()
 {
 	Hook_Draw();
 
+	// disable printf
+	MemMgr::MemSet(Offsets::getAddr(0x0011B7BC), 0x90, 5);
+
 	// Hook_Textures();
 }
