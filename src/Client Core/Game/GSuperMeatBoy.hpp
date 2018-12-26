@@ -16,6 +16,7 @@ public:
 	uintptr_t unk4;
 };
 
+// sizeof: 928
 class GSuperMeatBoy : public RenderLayerObject, Game
 {
 public:

@@ -2,12 +2,12 @@
 
 #include "RenderLayerObject.hpp"
 
-class SceneObject : RenderLayerObject
+class SceneObject : public RenderLayerObject
 {
 public:
 };
 
-class SceneObject2D : SceneObject
+class SceneObject2D : public SceneObject
 {
 public:
 };

@@ -3,6 +3,6 @@
 #include "SceneObject2D.hpp"
 
 // sizeof: 240 0xF0
-class Sprite : SceneObject2D
+class Sprite : public  SceneObject2D
 {
 };
