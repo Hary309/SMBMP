@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Game/GSuperMeatBoy.hpp"
+#include "Game/MeatBoyCharactor.hpp"
 
 // sizeof: 2636 0xA4C
 class DefaultMeatBoy : public MeatBoyCharactor
@@ -11,7 +11,4 @@ public:
 public:
 	DefaultMeatBoy(MeatBoyCharactor* player, int number);
 	~DefaultMeatBoy();
-
-	void draw();
-	void update();
 };

@@ -20,6 +20,7 @@
     <ClInclude Include="Client.hpp" />
     <ClInclude Include="Common.hpp" />
     <ClInclude Include="Game\Camera.hpp" />
+    <ClInclude Include="Game\Characters.hpp" />
     <ClInclude Include="Game\Characters\DefaultMeatBoy.hpp" />
     <ClInclude Include="Game\GSuperMeatBoy.hpp" />
     <ClInclude Include="Game\Layers.hpp" />

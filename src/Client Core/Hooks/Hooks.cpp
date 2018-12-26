@@ -15,16 +15,30 @@
 
 #include "TexturesHook.hpp"
 
-DefaultMeatBoy* defaultMeatBoy = nullptr;
+MeatBoyCharactor* player1 = nullptr;
+MeatBoyCharactor* player2 = nullptr;
+
+
 
 void TestDraw()
 {
 	if (GetAsyncKeyState(VK_F5))
 	{
-		if (defaultMeatBoy == nullptr)
+		if (player1 == nullptr)
 		{
-			defaultMeatBoy = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
-			defaultMeatBoy->update();
+			player1 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);  
+			player2 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);
+
+			//player1 = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
+			//player2 = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
+
+			//player1 = Characters::getCharacter(Characters::Type::DefaultMeatBoy);
+			//player2 = Characters::getCharacter(Characters::Type::DefaultMeatBoy);
+
+			printf("Postac: %p %p\n", player1, player2);
+
+			player1->renderPos.x = -200.f;
+			player2->renderPos.x = -100.f;
 		}
 	}
 
@@ -33,17 +47,19 @@ void TestDraw()
 		//printf("%p\n", Window::get()->vtable);
 	}
 
-	if (defaultMeatBoy)
+	if (player1)
 	{
-		if (GetAsyncKeyState(VK_F6))
+		/*if (GetAsyncKeyState(VK_F6))
 		{
 			defaultMeatBoy->pos = GSuperMeatBoy::get()->player->pos;
 			defaultMeatBoy->renderPos = GSuperMeatBoy::get()->player->pos;
+			defaultMeatBoy->animationType = GSuperMeatBoy::get()->player->animationType;
 			//printf("%p\n", defaultMeatBoy);
 			//defaultMeatBoy->update();
-		}
+		}*/
 
-		defaultMeatBoy->draw();
+		player1->draw();
+		player2->draw();
 	}
 }
 
@@ -82,5 +98,8 @@ void Hooks::Init()
 	// disable printf
 	MemMgr::MemSet(Offsets::getAddr(0x0011B7BC), 0x90, 5);
 
+	// disable exception handler
+	MemMgr::MemSet(Offsets::getAddr(0x001DED31), 0xC3, 1);
+	MemMgr::MemSet(Offsets::getAddr(0x001DED62), 0xC3, 1);
 	// Hook_Textures();
 }

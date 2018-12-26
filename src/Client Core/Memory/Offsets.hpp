@@ -1,15 +1,17 @@
 #pragma once
 
+#include <stdint.h>
+
 class Offsets
 {
 private:
-	static unsigned baseAddr;
+	static uintptr_t baseAddr;
 
 public:
 	static void init();
 
-	static unsigned getAddr(unsigned addr);
-	static unsigned solveAddr(unsigned addr);
+	static uintptr_t getAddr(uintptr_t addr);
+	static uintptr_t solveAddr(uintptr_t addr);
 
-	static unsigned getBaseAddr();
+	static uintptr_t getBaseAddr();
 };

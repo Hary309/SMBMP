@@ -1,13 +1,22 @@
-﻿#pragma once
+#pragma once
 
 #include "SceneObject2D.hpp"
 #include "Vector.hpp"
 #include "ReplayManager.hpp"
+#include "Characters.hpp"
 
-class MeatBoyCharactor : SceneObject2D
+class MeatBoyCharactorVTable
 {
 public:
-	char pad1[116];				// +0
+	char pad[32];
+	void (__thiscall *draw)(MeatBoyCharactor*);
+};
+
+class MeatBoyCharactor //: public SceneObject2D
+{
+public:
+	MeatBoyCharactorVTable* vtable; // +0
+	char pad1[128];				// +4
 	Vector2 pos;				// +132
 	char pad2[0x10];			// +140
 	Vector2 velocity;			// +156 0x9C
@@ -27,4 +36,35 @@ public:
 	char pad8[76];				// +2552
 	int ghostIndex;				// +2628 
 	// +2552
+
+public:
+	void setPosition(Vector2 pos)
+	{
+		this->pos = pos;
+		this->renderPos = pos;
+	}
+
+	static MeatBoyCharactor* createCharacter(Characters::Type type)
+	{
+		auto character = Characters::getCharacter(type);
+
+		uintptr_t createCharacterAddr = Offsets::getAddr(0x000E9460);
+
+		MeatBoyCharactor* result = nullptr;
+
+		__asm
+		{
+			push 0
+			push character
+			call createCharacterAddr
+			mov result, eax
+		}
+		
+		return result;
+	}
+
+	void draw()
+	{
+		vtable->draw(this);
+	}
 };

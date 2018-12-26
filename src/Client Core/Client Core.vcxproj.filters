@@ -71,9 +71,6 @@
     <ClInclude Include="Game\Layers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\TexturesHook.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Characters\DefaultMeatBoy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -102,6 +99,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\GMeatHud.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Characters.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\TexturesHook.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
