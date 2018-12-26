@@ -95,9 +95,10 @@ public:
 class SMB_dword_D6A1A0
 {
 public:
-	char pad[32];		// +0
-	Camera* camera;		// +32
-	// +36
+	char pad[32];				// +0
+	Camera* camera;				// +32
+	int unk;					// +36
+	MeatBoyCharactor* player;	// +40
 
 	static SMB_dword_D6A1A0* get()
 	{

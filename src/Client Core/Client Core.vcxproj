@@ -9,6 +9,7 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Common.cpp" />
+    <ClCompile Include="Game\DefaultMeatBoy.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Memory\MemMgr.cpp" />
@@ -17,6 +18,7 @@
   <ItemGroup>
     <ClInclude Include="Client.hpp" />
     <ClInclude Include="Common.hpp" />
+    <ClInclude Include="Game\DefaultMeatBoy.hpp" />
     <ClInclude Include="Game\GSuperMeatBoy.hpp" />
     <ClInclude Include="Game\Layers.hpp" />
     <ClInclude Include="Game\Menu.hpp" />
