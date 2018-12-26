@@ -9,7 +9,7 @@
 
 #include "Game/Renderer.hpp"
 #include "Game/GSuperMeatBoy.hpp"
-#include "Game/DefaultMeatBoy.hpp"
+#include "Game/Characters/DefaultMeatBoy.hpp"
 
 #include "Common.hpp"
 
@@ -23,22 +23,26 @@ void TestDraw()
 	{
 		if (defaultMeatBoy == nullptr)
 		{
-			defaultMeatBoy = new DefaultMeatBoy(SMB_dword_D6A1A0::get()->player, 0);
-
-			printf("Created!\n");
+			defaultMeatBoy = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
+			defaultMeatBoy->update();
 		}
 	}
 
-	if (GetAsyncKeyState(VK_F6))
+	if (GetAsyncKeyState(VK_F7))
 	{
-		if (defaultMeatBoy)
-		{
-			defaultMeatBoy->pos = SMB_dword_D6A1A0::get()->player->pos;
-		}
+		//printf("%p\n", Window::get()->vtable);
 	}
 
 	if (defaultMeatBoy)
 	{
+		if (GetAsyncKeyState(VK_F6))
+		{
+			defaultMeatBoy->pos = GSuperMeatBoy::get()->player->pos;
+			defaultMeatBoy->renderPos = GSuperMeatBoy::get()->player->pos;
+			//printf("%p\n", defaultMeatBoy);
+			//defaultMeatBoy->update();
+		}
+
 		defaultMeatBoy->draw();
 	}
 }

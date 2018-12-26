@@ -13,4 +13,5 @@ public:
 	~DefaultMeatBoy();
 
 	void draw();
+	void update();
 };

@@ -9,7 +9,8 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Common.cpp" />
-    <ClCompile Include="Game\DefaultMeatBoy.cpp" />
+    <ClCompile Include="Game\Characters\DefaultMeatBoy.cpp" />
+    <ClCompile Include="Hooks\TexturesHook.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Memory\MemMgr.cpp" />
@@ -18,12 +19,21 @@
   <ItemGroup>
     <ClInclude Include="Client.hpp" />
     <ClInclude Include="Common.hpp" />
-    <ClInclude Include="Game\DefaultMeatBoy.hpp" />
+    <ClInclude Include="Game\Camera.hpp" />
+    <ClInclude Include="Game\Characters\DefaultMeatBoy.hpp" />
     <ClInclude Include="Game\GSuperMeatBoy.hpp" />
     <ClInclude Include="Game\Layers.hpp" />
+    <ClInclude Include="Game\LevelManager.hpp" />
+    <ClInclude Include="Game\MeatBoyCharactor.hpp" />
     <ClInclude Include="Game\Menu.hpp" />
     <ClInclude Include="Game\Renderer.hpp" />
+    <ClInclude Include="Game\RenderLayerObject.hpp" />
+    <ClInclude Include="Game\ReplayManager.hpp" />
+    <ClInclude Include="Game\SceneObject2D.hpp" />
+    <ClInclude Include="Game\Sprite.hpp" />
     <ClInclude Include="Game\Vector.hpp" />
+    <ClInclude Include="Game\Window.hpp" />
+    <ClInclude Include="Hooks\TexturesHook.hpp" />
     <ClInclude Include="Hooks\Hooks.hpp" />
     <ClInclude Include="Memory\MemMgr.hpp" />
     <ClInclude Include="Memory\Offsets.hpp" />
