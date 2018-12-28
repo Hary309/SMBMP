@@ -1,25 +1,18 @@
 #include "DefaultMeatBoy.hpp"
 
-#include "Memory/MemMgr.hpp"
-#include "Memory/Offsets.hpp"
+#include "SMB.hpp"
 
 DefaultMeatBoy::DefaultMeatBoy(MeatBoyCharactor* player, int number)
 {
-	uintptr_t addr2 = Offsets::getAddr(0x000DB500);
-
-
 	__asm
 	{
 		push number
 		push player
 		mov ecx, this
-		call addr2
+		call GameOffsets::DefaultMeatBoy_DefaultMeatBoy
 	}
 }
 
 DefaultMeatBoy::~DefaultMeatBoy()
 {
 }
-
-
-

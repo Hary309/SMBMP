@@ -1,6 +1,6 @@
 #pragma once
 
-#include <stdint.h>
+#include "SMB.hpp"
 
 // sizeof: 16
 class RenderLayerObject

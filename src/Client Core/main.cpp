@@ -1,10 +1,12 @@
 #include <Windows.h>
 #include <iostream>
 
-#include "Client.hpp"
-#include "Memory/Offsets.hpp"
+#include <Memory/Offsets.hpp>
+#include <Hooks/Hooks.hpp>
 
-#include "Hooks/Hooks.hpp"
+#include <SMB.hpp>
+
+#include "Client.hpp"
 
 
 BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
@@ -18,11 +20,10 @@ BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 			freopen("CONOUT$", "w", stdout);
 			freopen("CONIN$", "r", stdin);
 
-			printf("Witam\n");
-
 			Client::setInstance(hinstDLL);
 
 			Offsets::init();
+			GameOffsets::init();
 			Hooks::Init();
 		} break;
 		case DLL_PROCESS_DETACH:

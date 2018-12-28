@@ -1,12 +1,6 @@
 #pragma once
 
-#include "Memory/Offsets.hpp"
-
-#include "Vector.hpp"
-#include "Camera.hpp"
-#include "MeatBoyCharactor.hpp"
-#include "RenderLayerObject.hpp"
-#include "Level.hpp"
+#include "SMB.hpp"
 
 // sizeof: 8
 class Game
@@ -31,7 +25,7 @@ public:
 
 	static GSuperMeatBoy* get()
 	{
-		return *(GSuperMeatBoy**)(Offsets::getAddr(0x0030A1A0));
+		return *(GSuperMeatBoy**)(GameOffsets::GSuperMeatBoy_ptr);
 	}
 };
 

@@ -1,9 +1,6 @@
 #pragma once
 
-#include <d3d9.h>
-#include <d3dx9.h>
-
-#include "Memory/Offsets.hpp"
+#include "SMB.hpp"
 
 // sizeof: 12
 class Renderer
@@ -15,6 +12,6 @@ public:
 
 	static Renderer* get()
 	{
-		return *(Renderer**)(Offsets::getAddr(0x00311148));
+		return *(Renderer**)(GameOffsets::Renderer_ptr);
 	}
 };

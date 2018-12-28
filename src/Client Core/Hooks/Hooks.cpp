@@ -5,12 +5,10 @@
 #include <vector>
 #include <fstream>
 
-#include "Memory/Offsets.hpp"
-#include "Memory/MemMgr.hpp"
+#include <Memory/Offsets.hpp>
+#include <Memory/MemMgr.hpp>
 
-#include "Game/Renderer.hpp"
-#include "Game/GSuperMeatBoy.hpp"
-#include "Game/Characters/DefaultMeatBoy.hpp"
+#include <SMB.hpp>
 
 #include "Common.hpp"
 
@@ -40,7 +38,6 @@ void TestDraw()
 			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::Brownie));
 			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::DrFetus));
 			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::PotatoBoy));
-
 
 			float last = 0.f;
 

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SceneObject2D.hpp"
+#include "SMB.hpp"
 
 // sizeof: 240 0xF0
 class Sprite : public  SceneObject2D

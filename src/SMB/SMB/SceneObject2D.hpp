@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RenderLayerObject.hpp"
+#include "SMB.hpp"
 
 class SceneObject : public RenderLayerObject
 {

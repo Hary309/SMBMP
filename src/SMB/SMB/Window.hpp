@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Memory/Offsets.hpp"
-#include "MeatBoyCharactor.hpp"
+#include "SMB.hpp"
 
 class Unk1
 {
@@ -21,6 +20,6 @@ public:
 
 	static Window* get()
 	{
-		return *(Window**)(Offsets::getAddr(0x0030BF28));
+		return *(Window**)(GameOffsets::Window_ptr);
 	}
 };

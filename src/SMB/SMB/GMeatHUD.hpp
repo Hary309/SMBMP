@@ -1,8 +1,6 @@
 #pragma once
 
-#include "Memory/Offsets.hpp"
-
-#include "Layers.hpp"
+#include "SMB.hpp"
 
 // sizeof: 1004
 class GMeatHUD : public RenderLayer
@@ -13,6 +11,6 @@ public:
 
 	static GMeatHUD* get()
 	{
-		return *(GMeatHUD**)(Offsets::getAddr(0x003098D8));
+		return *(GMeatHUD**)(GameOffsets::GMeatHUD_ptr);
 	}
 };

@@ -15,86 +15,69 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="SMB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hooks\Hooks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Common.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Client.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Hooks\TexturesHook.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="SMB\Characters\DefaultMeatBoy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game\Renderer.hpp">
+    <ClInclude Include="SMB.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Common.hpp">
+    <ClInclude Include="SMB\Vector.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GSuperMeatBoy.hpp">
+    <ClInclude Include="SMB\Sprite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\Hooks.hpp">
+    <ClInclude Include="SMB\SceneObject2D.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Client.hpp">
+    <ClInclude Include="SMB\ReplayManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Vector.hpp">
+    <ClInclude Include="SMB\RenderLayerObject.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Menu.hpp">
+    <ClInclude Include="SMB\LevelManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Layers.hpp">
+    <ClInclude Include="GameOffsets.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Characters\DefaultMeatBoy.hpp">
+    <ClInclude Include="SMB\Camera.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\MeatBoyCharactor.hpp">
+    <ClInclude Include="SMB\MeatBoyCharactor.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\ReplayManager.hpp">
+    <ClInclude Include="SMB\Characters.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Camera.hpp">
+    <ClInclude Include="SMB\Layers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\SceneObject2D.hpp">
+    <ClInclude Include="SMB\Level.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\RenderLayerObject.hpp">
+    <ClInclude Include="SMB\Renderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Sprite.hpp">
+    <ClInclude Include="SMB\Window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Window.hpp">
+    <ClInclude Include="SMB\GSMBMenu.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\GMeatHud.hpp">
+    <ClInclude Include="SMB\GMeatHUD.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\Characters.hpp">
+    <ClInclude Include="SMB\GSuperMeatBoy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hooks\TexturesHook.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\Level.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game\LevelManager.hpp">
+    <ClInclude Include="SMB\Characters\DefaultMeatBoy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

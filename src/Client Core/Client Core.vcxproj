@@ -9,12 +9,9 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Common.cpp" />
-    <ClCompile Include="Game\Characters\DefaultMeatBoy.cpp" />
     <ClCompile Include="Hooks\TexturesHook.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Memory\MemMgr.cpp" />
-    <ClCompile Include="Memory\Offsets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.hpp" />
@@ -38,8 +35,14 @@
     <ClInclude Include="Game\Window.hpp" />
     <ClInclude Include="Hooks\TexturesHook.hpp" />
     <ClInclude Include="Hooks\Hooks.hpp" />
-    <ClInclude Include="Memory\MemMgr.hpp" />
-    <ClInclude Include="Memory\Offsets.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.vcxproj">
+      <Project>{43b4066f-252a-4864-8c94-da8c83de9e99}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\SMB\SMB.vcxproj">
+      <Project>{35dae3e9-0462-4d13-82df-c75f331ca7c6}</Project>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -82,7 +85,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;CLIENTCORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>.\.;$(DXSDK_DIR)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\.;$(DXSDK_DIR)\include;..\Shared\;..\SMB;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>

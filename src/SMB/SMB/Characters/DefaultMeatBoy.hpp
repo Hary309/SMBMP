@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Game/MeatBoyCharactor.hpp"
+#include "SMB.hpp"
 
 // sizeof: 2636 0xA4C
 class DefaultMeatBoy : public MeatBoyCharactor

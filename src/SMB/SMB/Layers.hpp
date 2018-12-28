@@ -1,13 +1,11 @@
 #pragma once
 
-#include "MeatBoyCharactor.hpp"
-#include "Memory/Offsets.hpp"
+#include "SMB.hpp"
 
 class RenderLayer
 {
 
 };
-
 
 class GSuperMeatBoy_RenderLayer : public RenderLayer
 {
@@ -19,6 +17,6 @@ public:
 
 	static GSuperMeatBoy_RenderLayer* get()
 	{
-		return *(GSuperMeatBoy_RenderLayer**)(Offsets::getAddr(0x0030B298));
+		return *(GSuperMeatBoy_RenderLayer**)(GameOffsets::GSuperMeatBoy_RenderLayer_ptr);
 	}
 };

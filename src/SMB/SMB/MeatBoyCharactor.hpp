@@ -1,9 +1,6 @@
 #pragma once
 
-#include "SceneObject2D.hpp"
-#include "Vector.hpp"
-#include "ReplayManager.hpp"
-#include "Characters.hpp"
+#include "SMB.hpp"
 
 class MeatBoyCharactorVTable
 {
@@ -48,14 +45,13 @@ public:
 
 	static MeatBoyCharactor* cloneCharacter(MeatBoyCharactor* character)
 	{
-		uintptr_t createCharacterAddr = Offsets::getAddr(0x000E9460);
 		MeatBoyCharactor* result = nullptr;
 
 		__asm
 		{
 			push 0
 			push character
-			call createCharacterAddr
+			call GameOffsets::MeatBoyCharactor_cloneCharactor
 			mov result, eax
 		}
 

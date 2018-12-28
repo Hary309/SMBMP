@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Memory/Offsets.hpp"
+#include "SMB.hpp"
 
-class MeatBoyCharactor;
+#include <Memory/Offsets.hpp>
 
 struct Characters
 {
@@ -35,12 +35,9 @@ struct Characters
 		Tim = 29,
 		DefaultMeatBoy = 30
 	};
-
+		
 	static MeatBoyCharactor* getCharacter(Type type)
 	{
-		uintptr_t getCharactersAddr = Offsets::getAddr(0x000E9180);
-		uintptr_t charactersAddr = Offsets::getAddr(0x0030B2C0);
-
 		MeatBoyCharactor** result = nullptr;
 
 		int value = static_cast<int>(type);
@@ -54,8 +51,8 @@ struct Characters
 			pop esi
 
 			push valueAddr
-			mov ecx, charactersAddr
-			call getCharactersAddr
+			mov ecx, GameOffsets::Characters_ptr
+			call GameOffsets::Characters_getCharacters
 			mov result, eax
 		}
 
