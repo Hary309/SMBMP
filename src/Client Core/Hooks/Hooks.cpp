@@ -22,26 +22,45 @@ void TestDraw()
 	{
 		if (charactors.empty())
 		{
-			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::BandageGirl));
-			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::Brownie));
-			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::DrFetus));
-			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::PotatoBoy));
+			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy));
+			//charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::Brownie));
+			//charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::DrFetus));
+			//charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::PotatoBoy));
 
 			float last = 0.f;
+
+			auto player = GSuperMeatBoy::get()->player;
 
 			for (auto& ch : charactors)
 			{
 				ch->renderPos.x = last;
 				last += 20.f;
+				ch->animation1 = player->animation1;
 			}
 		}
 	}
 
 	if (!charactors.empty())
 	{
+		auto player = GSuperMeatBoy::get()->player;
 		for (auto& ch : charactors)
 		{
+			//printf("Setting %d\n", player->animationType1);
+
+			ch->renderPos = player->renderPos;
+			ch->renderPos.x += 20.f;
+
+			ch->animation1 = player->animation1;
+			ch->animation2 = player->animation2;
+			ch->animation4 = player->animation4;
+
+			/*if (ch->animation1 != 15)
+			{
+				ch->animation4 = 0;
+			}*/
+			//ch->update();
 			ch->draw();
+			//printf("%X %X\n", ch->animation3, player->animation3);
 		}
 
 	}

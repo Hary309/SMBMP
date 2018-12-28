@@ -5,8 +5,9 @@
 class MeatBoyCharactorVTable
 {
 public:
-	char pad[32];
-	void (__thiscall *draw)(MeatBoyCharactor*);
+	char pad[28];
+	void(__thiscall *update)(MeatBoyCharactor*);
+	void(__thiscall *draw)(MeatBoyCharactor*);
 };
 
 class MeatBoyCharactor //: public SceneObject2D
@@ -19,22 +20,23 @@ public:
 	Vector2 velocity;			// +156 0x9C
 	char pad3[0x34];			// +164 
 	void* texture;				// +216 (maybe sprite)
-	char pad4[1752];			// +220 
-	int animationType;			// +1972
-	int unk1;					// +1976
+	char pad4[1748];			// +220 
+	int animation1;				// +1968
+	int animation2;				// +1972
+	int animation3;				// +1976 (readonly)
 	int unk2;					// +1980
 	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaźników do duszków xD)
 	char pad5[88];				// +1988
 	Vector2 renderPos;			// +2076
 	char pad6[440];				// +2084
 	ReplayManager* replayMgr;	// +2524 0x9DC
-	char pad7[20];				// +2528
+	char pad7[12];				// +2528
+	int animation4;				// +2540
+	int unk3;					// +2544
 	int characterType;			// +2548 default: 0 (DefaultMeatBoy)
 	char pad8[76];				// +2552
 	int ghostIndex;				// +2628 
 	// +2552
-
-
 
 public:
 	void setPosition(Vector2 pos)
@@ -62,6 +64,11 @@ public:
 	{
 		auto character = Characters::getCharacter(type);
 		return cloneCharacter(character);
+	}
+
+	void update()
+	{
+		vtable->update(this);
 	}
 
 	void draw()
