@@ -3,26 +3,21 @@
 #include <Windows.h>
 #include <cstdio>
 
-unsigned Offsets::baseAddr = 0;
+uintptr_t Offsets::baseAddr = 0;
 
 void Offsets::init()
 {
-	baseAddr = (unsigned)GetModuleHandle(0);
+	baseAddr = (uintptr_t)GetModuleHandle(0);
 
 	printf("Offsets initialized! Base address = %X or %X\n", baseAddr, getAddr(0x00481920) - 0x00481920);
 }
 
-unsigned Offsets::getAddr(unsigned addr)
+uintptr_t Offsets::getAddr(uintptr_t addr)
 {
 	return baseAddr + addr;
 }
 
-unsigned Offsets::getBaseAddr()
+uintptr_t Offsets::getBaseAddr()
 {
 	return baseAddr;
-}
-
-unsigned Offsets::solveAddr(unsigned addr)
-{
-	return addr - baseAddr;
 }

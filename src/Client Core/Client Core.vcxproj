@@ -25,6 +25,7 @@
     <ClInclude Include="Game\GSuperMeatBoy.hpp" />
     <ClInclude Include="Game\Layers.hpp" />
     <ClInclude Include="Game\LevelManager.hpp" />
+    <ClInclude Include="Game\Level.hpp" />
     <ClInclude Include="Game\MeatBoyCharactor.hpp" />
     <ClInclude Include="Game\GMeatHud.hpp" />
     <ClInclude Include="Game\Menu.hpp" />

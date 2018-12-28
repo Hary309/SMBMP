@@ -37,6 +37,8 @@ public:
 	int ghostIndex;				// +2628 
 	// +2552
 
+
+
 public:
 	void setPosition(Vector2 pos)
 	{
@@ -44,12 +46,9 @@ public:
 		this->renderPos = pos;
 	}
 
-	static MeatBoyCharactor* createCharacter(Characters::Type type)
+	static MeatBoyCharactor* cloneCharacter(MeatBoyCharactor* character)
 	{
-		auto character = Characters::getCharacter(type);
-
 		uintptr_t createCharacterAddr = Offsets::getAddr(0x000E9460);
-
 		MeatBoyCharactor* result = nullptr;
 
 		__asm
@@ -59,8 +58,14 @@ public:
 			call createCharacterAddr
 			mov result, eax
 		}
-		
+
 		return result;
+	}
+
+	static MeatBoyCharactor* createCharacter(Characters::Type type)
+	{
+		auto character = Characters::getCharacter(type);
+		return cloneCharacter(character);
 	}
 
 	void draw()

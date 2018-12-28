@@ -2,6 +2,7 @@
 
 #include <windows.h>
 #include <string>
+#include <vector>
 #include <fstream>
 
 #include "Memory/Offsets.hpp"
@@ -15,19 +16,44 @@
 
 #include "TexturesHook.hpp"
 
-MeatBoyCharactor* player1 = nullptr;
-MeatBoyCharactor* player2 = nullptr;
+std::vector<MeatBoyCharactor*> charactors;
 
+struct Asdfff
+{
+	uintptr_t vtable;
+};
+
+
+Asdfff* Asdf()
+{
+	return *(Asdfff**)(Offsets::getAddr(0x0030A46C));
+}
 
 
 void TestDraw()
 {
 	if (GetAsyncKeyState(VK_F5))
 	{
-		if (player1 == nullptr)
+		if (charactors.empty())
 		{
-			player1 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);  
-			player2 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);
+			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::BandageGirl));
+			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::Brownie));
+			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::DrFetus));
+			charactors.push_back(MeatBoyCharactor::createCharacter(Characters::Type::PotatoBoy));
+
+
+			float last = 0.f;
+
+			for (auto& ch : charactors)
+			{
+				ch->renderPos.x = last;
+				last += 20.f;
+			}
+
+			//player1 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);  
+			//player2 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);
+			//player1 = new DefaultMeatBoy(data, 0);
+			//player2 = new DefaultMeatBoy(data, 0);
 
 			//player1 = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
 			//player2 = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
@@ -35,19 +61,30 @@ void TestDraw()
 			//player1 = Characters::getCharacter(Characters::Type::DefaultMeatBoy);
 			//player2 = Characters::getCharacter(Characters::Type::DefaultMeatBoy);
 
-			printf("Postac: %p %p\n", player1, player2);
+			//printf("Postac: %p %p\n", player1, player2);
 
-			player1->renderPos.x = -200.f;
-			player2->renderPos.x = -100.f;
+			//player1->renderPos.x = -200.f;
+			//player2->renderPos.x = -100.f;
 		}
 	}
 
+
 	if (GetAsyncKeyState(VK_F7))
 	{
+		//auto level = Level::get();
+
+		//printf("%f %f\n", level->startPos.x, level->startPos.y);
+
+		//level->loadLevel(1, 1);
+
+		//Sleep(100);
+
+	//	printf("%p\n", GSuperMeatBoy::get()->player->sprite->vtable);
+
 		//printf("%p\n", Window::get()->vtable);
 	}
 
-	if (player1)
+	if (charactors.size())
 	{
 		/*if (GetAsyncKeyState(VK_F6))
 		{
@@ -58,8 +95,12 @@ void TestDraw()
 			//defaultMeatBoy->update();
 		}*/
 
-		player1->draw();
-		player2->draw();
+
+		for (auto& ch : charactors)
+		{
+			ch->draw();
+		}
+
 	}
 }
 

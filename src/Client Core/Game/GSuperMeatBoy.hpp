@@ -6,7 +6,7 @@
 #include "Camera.hpp"
 #include "MeatBoyCharactor.hpp"
 #include "RenderLayerObject.hpp"
-#include "LevelManager.hpp"
+#include "Level.hpp"
 
 // sizeof: 8
 class Game
@@ -25,7 +25,7 @@ public:
 	int unk5;					// +24
 	int unk6;					// +28
 	Camera* camera;				// +32
-	LevelManager* levelMgr;		// +36
+	Level* currentLevel;		// +36
 	MeatBoyCharactor* player;	// +40
 	// +44
 
