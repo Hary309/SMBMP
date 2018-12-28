@@ -16,18 +16,6 @@
 
 std::vector<MeatBoyCharactor*> charactors;
 
-struct Asdfff
-{
-	uintptr_t vtable;
-};
-
-
-Asdfff* Asdf()
-{
-	return *(Asdfff**)(Offsets::getAddr(0x0030A46C));
-}
-
-
 void TestDraw()
 {
 	if (GetAsyncKeyState(VK_F5))
@@ -46,53 +34,11 @@ void TestDraw()
 				ch->renderPos.x = last;
 				last += 20.f;
 			}
-
-			//player1 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);  
-			//player2 = MeatBoyCharactor::createCharacter(Characters::Type::DefaultMeatBoy);
-			//player1 = new DefaultMeatBoy(data, 0);
-			//player2 = new DefaultMeatBoy(data, 0);
-
-			//player1 = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
-			//player2 = new DefaultMeatBoy(GSuperMeatBoy::get()->player, 0);
-
-			//player1 = Characters::getCharacter(Characters::Type::DefaultMeatBoy);
-			//player2 = Characters::getCharacter(Characters::Type::DefaultMeatBoy);
-
-			//printf("Postac: %p %p\n", player1, player2);
-
-			//player1->renderPos.x = -200.f;
-			//player2->renderPos.x = -100.f;
 		}
 	}
 
-
-	if (GetAsyncKeyState(VK_F7))
+	if (!charactors.empty())
 	{
-		//auto level = Level::get();
-
-		//printf("%f %f\n", level->startPos.x, level->startPos.y);
-
-		//level->loadLevel(1, 1);
-
-		//Sleep(100);
-
-	//	printf("%p\n", GSuperMeatBoy::get()->player->sprite->vtable);
-
-		//printf("%p\n", Window::get()->vtable);
-	}
-
-	if (charactors.size())
-	{
-		/*if (GetAsyncKeyState(VK_F6))
-		{
-			defaultMeatBoy->pos = GSuperMeatBoy::get()->player->pos;
-			defaultMeatBoy->renderPos = GSuperMeatBoy::get()->player->pos;
-			defaultMeatBoy->animationType = GSuperMeatBoy::get()->player->animationType;
-			//printf("%p\n", defaultMeatBoy);
-			//defaultMeatBoy->update();
-		}*/
-
-
 		for (auto& ch : charactors)
 		{
 			ch->draw();
@@ -100,7 +46,6 @@ void TestDraw()
 
 	}
 }
-
 
 uintptr_t DrawAddr_Call;
 uintptr_t DrawAddr_Retn;
@@ -139,5 +84,6 @@ void Hooks::Init()
 	// disable exception handler
 	MemMgr::MemSet(Offsets::getAddr(0x001DED31), 0xC3, 1);
 	MemMgr::MemSet(Offsets::getAddr(0x001DED62), 0xC3, 1);
+
 	// Hook_Textures();
 }
