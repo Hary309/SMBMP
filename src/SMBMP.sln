@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client Core", "Client Core\Client Core.vcxproj", "{14D150AA-FF7A-477E-910B-47B9DD6289D2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{14D150AA-FF7A-477E-910B-47B9DD6289D2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client Launcher", "Client Launcher\Client Launcher.vcxproj", "{54EC5553-F04E-41FB-B515-2E4116FCCABC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Launcher", "Launcher\Launcher.vcxproj", "{54EC5553-F04E-41FB-B515-2E4116FCCABC}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Shared", "Shared\Shared.vcxproj", "{43B4066F-252A-4864-8C94-DA8C83DE9E99}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SMB", "SMB\SMB.vcxproj", "{35DAE3E9-0462-4D13-82DF-C75F331CA7C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{40C0D2E7-665B-4885-B9C8-BF1CB9661125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14D150AA-FF7A-477E-910B-47B9DD6289D2} = {40C0D2E7-665B-4885-B9C8-BF1CB9661125}
+		{54EC5553-F04E-41FB-B515-2E4116FCCABC} = {40C0D2E7-665B-4885-B9C8-BF1CB9661125}
+		{35DAE3E9-0462-4D13-82DF-C75F331CA7C6} = {40C0D2E7-665B-4885-B9C8-BF1CB9661125}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9592D7DF-C2F6-425F-A54E-55E7AB0DBC4A}

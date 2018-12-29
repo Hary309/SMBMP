@@ -16,6 +16,26 @@
 
 std::vector<MeatBoyCharactor*> charactors;
 
+void CallStartAnim(MeatBoyCharactor* ch)
+{
+	uintptr_t first = Offsets::getAddr(0x000D8C90);
+	uintptr_t second = Offsets::getAddr(0x00103900);
+
+	auto display = ch->display;
+	auto anim = ch->animation4;
+
+	__asm
+	{
+		mov ecx, display
+		push anim
+		add ecx, 900
+		call first
+
+		mov ecx, eax
+		call second
+	}
+}
+
 void TestDraw()
 {
 	if (GetAsyncKeyState(VK_F5))
@@ -37,6 +57,10 @@ void TestDraw()
 				last += 20.f;
 				ch->animation1 = player->animation1;
 			}
+
+
+			printf("D: %p\n", player->display->vtable);
+
 		}
 	}
 
@@ -45,22 +69,21 @@ void TestDraw()
 		auto player = GSuperMeatBoy::get()->player;
 		for (auto& ch : charactors)
 		{
-			//printf("Setting %d\n", player->animationType1);
-
 			ch->renderPos = player->renderPos;
 			ch->renderPos.x += 20.f;
+
+			static int lastAnim = 0;
 
 			ch->animation1 = player->animation1;
 			ch->animation2 = player->animation2;
 			ch->animation4 = player->animation4;
 
-			/*if (ch->animation1 != 15)
+			if (ch->animation1 != 15)
 			{
 				ch->animation4 = 0;
-			}*/
-			//ch->update();
+			}
+
 			ch->draw();
-			//printf("%X %X\n", ch->animation3, player->animation3);
 		}
 
 	}
@@ -105,4 +128,6 @@ void Hooks::Init()
 	MemMgr::MemSet(Offsets::getAddr(0x001DED62), 0xC3, 1);
 
 	// Hook_Textures();
+
+	//MemMgr::MemSet(Offsets::getAddr(0x00103900), 0xC3, 1);
 }

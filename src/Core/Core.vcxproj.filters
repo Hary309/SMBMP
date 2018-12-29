@@ -30,8 +30,6 @@
     <ClCompile Include="Hooks\TexturesHook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Renderer.hpp">

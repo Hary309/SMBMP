@@ -8,7 +8,6 @@
 
 #include "Client.hpp"
 
-
 BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
 	switch (fdwReason)
