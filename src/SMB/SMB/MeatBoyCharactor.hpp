@@ -19,7 +19,7 @@ public:
 	char pad2[0x10];			// +140
 	Vector2 velocity;			// +156 0x9C
 	char pad3[0x34];			// +164 
-	void* texture;				// +216 (maybe sprite)
+	MeatBoyDisplay* display;	// +216
 	char pad4[1748];			// +220 
 	int animation1;				// +1968
 	int animation2;				// +1972

@@ -17,6 +17,7 @@ uintptr_t GameOffsets::LevelManager_loadLevel;
 uintptr_t GameOffsets::MeatBoyCharactor_cloneCharactor;
 uintptr_t GameOffsets::DefaultMeatBoy_DefaultMeatBoy;
 
+
 uintptr_t GameOffsets::Renderer_ptr;
 
 uintptr_t GameOffsets::Window_ptr;

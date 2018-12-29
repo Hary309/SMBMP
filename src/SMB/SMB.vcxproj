@@ -59,6 +59,7 @@
     <ClInclude Include="SMB\Camera.hpp" />
     <ClInclude Include="SMB\Characters.hpp" />
     <ClInclude Include="SMB\Characters\DefaultMeatBoy.hpp" />
+    <ClInclude Include="SMB\MeatBoyDisplay.hpp" />
     <ClInclude Include="SMB\GMeatHUD.hpp" />
     <ClInclude Include="SMB\GSMBMenu.hpp" />
     <ClInclude Include="SMB\GSuperMeatBoy.hpp" />

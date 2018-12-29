@@ -80,5 +80,8 @@
     <ClInclude Include="SMB\Characters\DefaultMeatBoy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SMB\MeatBoyDisplay.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

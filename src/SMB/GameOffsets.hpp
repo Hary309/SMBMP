@@ -18,7 +18,6 @@ public:
 	static uintptr_t LevelManager_loadLevel;
 
 	static uintptr_t MeatBoyCharactor_cloneCharactor;
-
 	static uintptr_t DefaultMeatBoy_DefaultMeatBoy;
 
 	static uintptr_t Renderer_ptr;

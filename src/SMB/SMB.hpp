@@ -13,9 +13,11 @@
 #include "GameOffsets.hpp"
 
 class MeatBoyCharactor;
+class MeatBoyDisplay;
 class Camera;
 class LevelManager;
 class Level;
+class Display;
 
 #include "SMB/Vector.hpp"
 #include "SMB/RenderLayerObject.hpp"
@@ -23,6 +25,8 @@ class Level;
 #include "SMB/ReplayManager.hpp"
 #include "SMB/Characters.hpp"
 #include "SMB/MeatBoyCharactor.hpp"
+#include "SMB/MeatBoyDisplay.hpp"
+#include "SMB/Camera.hpp"
 #include "SMB/Layers.hpp"
 #include "SMB/GMeatHUD.hpp"
 #include "SMB/GSuperMeatBoy.hpp"
@@ -30,7 +34,6 @@ class Level;
 #include "SMB/LevelManager.hpp"
 #include "SMB/Renderer.hpp"
 #include "SMB/Sprite.hpp"
-#include "SMB/Camera.hpp"
 #include "SMB/Window.hpp"
 #include "SMB/GSMBMenu.hpp"
 
