@@ -6,9 +6,7 @@
 #include <stdint.h>
 #include <string>
 
-#include <d3d9.h>
-#include <d3dx9.h>
-#include <d3dx9math.h>
+#include <d3d.h>
 
 #include "GameOffsets.hpp"
 

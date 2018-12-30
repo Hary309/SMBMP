@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <string>
 
-#include <DxErr.h>
+#include <d3d.h>
 
 #include "Client.hpp"
 
@@ -47,7 +47,14 @@ const char* GetFilePath(const char* path)
 
 const char* GetDXErrorMsg(long hResult)
 {
-	char error[256];
-	sprintf_s(error, "%s - %s", DXGetErrorString(hResult), DXGetErrorDescription(hResult));
-	return error;
+	char* desc;
+	size_t count = 1024;
+
+	DWORD result = FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, nullptr, hResult,
+		MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), desc, count, nullptr);
+
+	if (result > 0)
+		return "";
+
+	return desc;
 }

@@ -6,8 +6,9 @@
 class Renderer
 {
 public:
-	IDirect3DDevice9* device;	// +0
-	IDirect3D9* d3d;			// +4
+	IDirect3DDevice* device;	// +0
+	IDirect3D* d3d;				// +4
+
 	// +8
 
 	static Renderer* get()

@@ -2,4 +2,6 @@
 
 #include "SMB.hpp"
 
-using Vector2 = D3DXVECTOR2;
+
+using Vector2 = D3DVECTOR;
+
