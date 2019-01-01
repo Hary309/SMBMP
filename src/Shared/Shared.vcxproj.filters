@@ -7,5 +7,8 @@
   <ItemGroup>
     <ClInclude Include="Memory\MemMgr.hpp" />
     <ClInclude Include="Memory\Offsets.hpp" />
+    <ClInclude Include="Network\PacketType.hpp" />
+    <ClInclude Include="Buffer.hpp" />
+    <ClInclude Include="Network\NetBuffer.hpp" />
   </ItemGroup>
 </Project>

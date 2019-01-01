@@ -9,9 +9,16 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Common.cpp" />
-    <ClCompile Include="Hooks\TexturesHook.cpp" />
+    <ClCompile Include="Hooks\GameInit_Hook.cpp" />
+    <ClCompile Include="Hooks\MainLoop_Hook.cpp" />
+    <ClCompile Include="Hooks\PlayerLayer_Hook.cpp" />
+    <ClCompile Include="Hooks\TextureLoad_Hook.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Network\NetClient.cpp" />
+    <ClCompile Include="Network\NetClientPlayer.cpp" />
+    <ClCompile Include="Network\NetPlayer.cpp" />
+    <ClCompile Include="Network\NetPlayerManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.hpp" />
@@ -33,8 +40,15 @@
     <ClInclude Include="Game\Sprite.hpp" />
     <ClInclude Include="Game\Vector.hpp" />
     <ClInclude Include="Game\Window.hpp" />
-    <ClInclude Include="Hooks\TexturesHook.hpp" />
+    <ClInclude Include="Hooks\GameInit_Hook.hpp" />
+    <ClInclude Include="Hooks\MainLoop_Hook.hpp" />
+    <ClInclude Include="Hooks\PlayerLayer_Hook.hpp" />
+    <ClInclude Include="Hooks\TextureLoad_Hook.hpp" />
     <ClInclude Include="Hooks\Hooks.hpp" />
+    <ClInclude Include="Network\NetClient.hpp" />
+    <ClInclude Include="Network\NetClientPlayer.hpp" />
+    <ClInclude Include="Network\NetPlayer.hpp" />
+    <ClInclude Include="Network\NetPlayerManager.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.vcxproj">
@@ -79,23 +93,25 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;CLIENTCORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>4996</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>.\.;$(DXSDK_DIR)\include;..\Shared\;..\SMB;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\.;$(DXSDK_DIR)\include;..\Shared\;..\SMB;..\vendor\enet\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(DXSDK_DIR)\Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d9.lib;legacy_stdio_definitions.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(DXSDK_DIR)\Lib\x86;..\vendor\enet;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;legacy_stdio_definitions.lib;enet.lib;ws2_32.lib;Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

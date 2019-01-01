@@ -1,12 +1,9 @@
+#include "Client.hpp"
+
 #include <Windows.h>
 #include <iostream>
 
-#include <Memory/Offsets.hpp>
-#include <Hooks/Hooks.hpp>
-
-#include <SMB.hpp>
-
-#include "Client.hpp"
+std::unique_ptr<Client> client;
 
 BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 {
@@ -19,15 +16,14 @@ BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 			freopen("CONOUT$", "w", stdout);
 			freopen("CONIN$", "r", stdin);
 
-			Client::setInstance(hinstDLL);
+			printf("Uszanowanko\n");
 
-			Offsets::init();
-			GameOffsets::init();
-			Hooks::Init();
+			client = std::make_unique<Client>(hinstDLL);
 		} break;
 		case DLL_PROCESS_DETACH:
 		{
-			printf("Nara\n");
+			FreeConsole();
+			client.reset();
 		} break;
 	}
 

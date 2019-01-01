@@ -1,16 +1,36 @@
 #pragma once
 
+#include <WinSock2.h>
+
+#include <memory>
 #include <windows.h>
+
+class NetClient;
+class NetPlayerManager;
 
 class Client
 {
 private:
-	static HINSTANCE hInstance;
+	static Client* instance;
+
+private:
+	std::unique_ptr<NetClient> netClient;
+	std::unique_ptr<NetPlayerManager> netPlayerMgr;
+	HINSTANCE hInstance;
 
 public:
-	Client();
+	Client(HINSTANCE _hInstance);
 	~Client();
 
-	static void setInstance(HINSTANCE _hInstance) { hInstance = _hInstance; }
-	static HINSTANCE getInstance() { return hInstance; }
+	void init();
+
+	void update();
+	void draw_playerLayer();
+
+	NetClient* getNetClient() { return netClient.get(); }
+	NetPlayerManager* getPlayerMgr() { return netPlayerMgr.get(); }
+
+	HINSTANCE getHInstance() { return hInstance; }
+
+	static Client* get() { return instance; }
 };

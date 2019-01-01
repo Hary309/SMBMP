@@ -20,10 +20,10 @@ public:
 	Vector2 velocity;			// +156 0x9C
 	char pad3[0x34];			// +164 
 	MeatBoyDisplay* display;	// +216
-	char pad4[1748];			// +220 
+	char pad4[1738];			// +220 
 	int animation1;				// +1968
 	int animation2;				// +1972
-	int animation3;				// +1976 (readonly)
+	int animation3;				// +1976
 	int unk2;					// +1980
 	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaźników do duszków xD)
 	char pad5[88];				// +1988

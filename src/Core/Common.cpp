@@ -1,17 +1,15 @@
 #include "Common.hpp"
-
-#include <windows.h>
-#include <string>
-
-#include <d3d.h>
-
 #include "Client.hpp"
+
+#include <string>
+#include <d3d.h>
+#include <windows.h>
 
 const char* GetFilePath(const char* path)
 {
 	char moduleFilePath[MAX_PATH] = { 0 };
 
-	GetModuleFileName(Client::getInstance(), moduleFilePath, MAX_PATH);
+	GetModuleFileName(Client::get()->getHInstance(), moduleFilePath, MAX_PATH);
 
 	char result[MAX_PATH] = { 0 };
 

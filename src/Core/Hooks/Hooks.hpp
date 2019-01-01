@@ -2,5 +2,5 @@
 
 namespace Hooks
 {
-	void Init();
+	void init();
 }

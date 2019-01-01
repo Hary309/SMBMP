@@ -1,4 +1,4 @@
-#include "TexturesHook.hpp"
+#include "TextureLoad_Hook.hpp"
 
 #include <fstream>
 #include <string>
@@ -9,7 +9,7 @@
 uintptr_t LoadTextureAddrCall;
 uintptr_t LoadTextureAddrRetn;
 
-void LoadTexture_Print(void* addr, void* data, int size)
+void TextureLoad(void* addr, void* data, int size)
 {
 	printf("Addr: %p Size: %d\n", addr, size);
 
@@ -19,7 +19,7 @@ void LoadTexture_Print(void* addr, void* data, int size)
 	file.close();
 }
 
-void __declspec(naked) Asm_LoadTexture()
+void __declspec(naked) Asm_TextureLoad()
 {
 	__asm
 	{
@@ -38,11 +38,13 @@ void __declspec(naked) Asm_LoadTexture()
 	}
 }
 
-void Hook_Textures()
+void Hook_TextureLoad()
 {
-	LoadTextureAddrCall = (uintptr_t)LoadTexture_Print;
+	LoadTextureAddrCall = (uintptr_t)TextureLoad;
 	LoadTextureAddrRetn = Offsets::getAddr(0x629182);
+	MemMgr::JmpHook(Offsets::getAddr(0x62917C), (uintptr_t)Asm_TextureLoad);
 
-	MemMgr::JmpHook(Offsets::getAddr(0x62917C), (uintptr_t)Asm_LoadTexture);
+	printf("TextureLoad hook initialized!\n");
+
 }
 
