@@ -89,6 +89,30 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 			netPlayerMgr->getLocalPlayer()->setId(id);
 
 			printf("My id: %d\n", id);
+
+			int playersNumber = 0;
+
+			packet.read(playersNumber);
+
+			Vector2f pos;
+			int characterType = -1;
+
+			for (int i = 0; i < playersNumber; ++i)
+			{
+				packet.read(id);
+				packet.read(pos.x);
+				packet.read(pos.y);
+				packet.read(characterType);
+
+				auto player = netPlayerMgr->add(id);
+
+				if (characterType != -1)
+					player->changeCharacter(static_cast<Characters::Type>(characterType));
+
+				player->updatePos(pos);
+
+				printf("Adding player with id: %d\n", id);
+			}
 		} break;
 		case PacketType::ClientConnected:
 		{

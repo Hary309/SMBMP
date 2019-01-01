@@ -59,9 +59,15 @@ void NetServer::update()
 			} break;
 			case ENET_EVENT_TYPE_DISCONNECT:
 			{
-				printf("%p disconnected.\n", event.peer);
+				size_t id = reinterpret_cast<NetPlayer*>(event.peer->data)->getId();
 
+				printf("Client with id: %d lost connection!\n", id);
 				clientMgr->remove(event.peer);
+
+				NetBuffer packet(PacketType::ClientDisconnected);
+				packet.write(id);
+				packet.flush();
+				send(packet);
 			} break;
 		}
 	}
@@ -79,6 +85,24 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 
 			packet.reset(PacketType::ClientInitialData);
 			packet.write(client->getId());
+
+			packet.write(clientMgr->getSize() - 1);
+
+			printf("Sending: %d\n", clientMgr->getSize() - 1);
+
+			auto& clients = clientMgr->getClients();
+
+			for (auto& _client : clients)
+			{ 
+				if (_client.get() == client)
+					continue;
+
+				packet.write(_client->getId());
+				packet.write(_client->getPos().x);
+				packet.write(_client->getPos().y);
+				packet.write(_client->getCharacterType());
+			}
+
 			packet.flush();
 
 			send(packet, peer);
@@ -91,9 +115,15 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 		} break;
 		case PacketType::ClientDisconnected:
 		{
-			printf("Client disconnected!");
+			size_t id = reinterpret_cast<NetPlayer*>(peer->data)->getId();
 
+			printf("Client with id: %d disconnected!\n", id);
 			clientMgr->remove(peer);
+
+			NetBuffer packet(PacketType::ClientDisconnected);
+			packet.write(id);
+			packet.flush();
+			send(packet);
 		} break;
 		case PacketType::ClientCharacterChanged:
 		{
@@ -108,6 +138,8 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 				characterType = 30;
 
 			printf("Player %d changed charactor to: %d\n", client->getId(), characterType);
+
+			client->setCharacterType(characterType);
 
 			packet.reset(PacketType::ClientCharacterChanged);
 			packet.write(client->getId());
@@ -125,8 +157,7 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 			packet.read(pos.x);
 			packet.read(pos.y);
 
-			packet.read(x);
-			packet.read(y);
+			client->setPos(pos);
 
 			packet.reset(PacketType::ClientPositionUpdate);
 			packet.write(client->getId());
