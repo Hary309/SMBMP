@@ -20,7 +20,7 @@ public:
 	Vector2 velocity;			// +156 0x9C
 	char pad3[0x34];			// +164 
 	MeatBoyDisplay* display;	// +216
-	char pad4[1738];			// +220 
+	char pad4[1746];			// +220 
 	int animation1;				// +1968
 	int animation2;				// +1972
 	int animation3;				// +1976
