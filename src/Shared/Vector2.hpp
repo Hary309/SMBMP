@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#include <algorithm>
+
 template<typename T>
 class Vector2
 {
@@ -18,66 +20,87 @@ public:
 	{
 	}
 
-	constexpr Vector2<T> operator+(const Vector2<T>& other)
+	static Vector2<T> lerp(const Vector2<T>& a, const Vector2<T>& b, float alpha)
 	{
-		Vector2 result;
-		result.x = x + other.x;
-		result.y = y + other.y;
-		return (*this);
-	}
+		alpha = std::clamp(alpha, 0.f, 1.f);
 
-	constexpr Vector2<T>& operator+=(const Vector2<T>& other)
-	{
-		x += other.x;
-		y += other.y;
-		return (*this);
-	}
-
-	constexpr Vector2<T> operator-(const Vector2<T>& other)
-	{
 		Vector2<T> result;
-		result.x = x - other.x;
-		result.y = y - other.y;
+		result.x = (b.x - a.x) * alpha;
+		result.y = (b.y - a.y) * alpha;
 		return result;
-	}
-
-	constexpr Vector2<T>& operator-=(const Vector2<T>& other)
-	{
-		x -= other.x;
-		y -= other.y;
-		return (*this);
-	}
-
-	constexpr Vector2<T> operator*(const Vector2<T>& other)
-	{
-		Vector2 result;
-		result.x = x * other.x;
-		result.y = y * other.y;
-		return result;
-	}
-
-	constexpr Vector2<T>& operator*=(const Vector2<T>& other)
-	{
-		x *= other.x;
-		y *= other.y;
-		return (*this);
-	}
-
-	constexpr Vector2<T> operator*(float value)
-	{
-		Vector2<T> result;
-		result.x = this->x * value;
-		result.y = this->y * value;
-		return result;
-	}
-
-	constexpr Vector2<T>& operator*=(float value)
-	{
-		x *= value;
-		y *= value;
-		return (*this);
 	}
 };
 
+template <typename T>
+constexpr Vector2<T> operator -(const Vector2<T>& right)
+{
+	return Vector2<T>(-right.x, -right.y);
+}
+
+template <typename T>
+constexpr Vector2<T>& operator +=(Vector2<T>& left, const Vector2<T>& right)
+{
+	left.x += right.x;
+	left.y += right.y;
+
+	return left;
+}
+
+template <typename T>
+constexpr Vector2<T>& operator -=(Vector2<T>& left, const Vector2<T>& right)
+{
+	left.x -= right.x;
+	left.y -= right.y;
+
+	return left;
+}
+
+template <typename T>
+constexpr Vector2<T> operator +(const Vector2<T>& left, const Vector2<T>& right)
+{
+	return Vector2<T>(left.x + right.x, left.y + right.y);
+}
+
+template <typename T>
+constexpr Vector2<T> operator -(const Vector2<T>& left, const Vector2<T>& right)
+{
+	return Vector2<T>(left.x - right.x, left.y - right.y);
+}
+
+template <typename T>
+constexpr Vector2<T> operator *(const Vector2<T>& left, T right)
+{
+	return Vector2<T>(right.x * left, right.y * left);
+}
+
+template <typename T>
+constexpr Vector2<T> operator *(T left, const Vector2<T>& right)
+{
+	return Vector2<T>(left.x * right, left.y * right);
+}
+
+template <typename T>
+constexpr Vector2<T>& operator *=(Vector2<T>& left, T right)
+{
+	left.x *= right;
+	left.y *= right;
+
+	return left;
+}
+
+template <typename T>
+constexpr Vector2<T> operator /(const Vector2<T>& left, T right)
+{
+	return Vector2<T>(left.x / right, left.y / right);
+}
+
+template <typename T>
+constexpr Vector2<T>& operator /=(Vector2<T>& left, T right)
+{
+	left.x /= right;
+	left.y /= right;
+
+	return left;
+}
 
 using Vector2f = Vector2<float>;
