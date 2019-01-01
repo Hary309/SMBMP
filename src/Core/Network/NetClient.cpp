@@ -12,10 +12,8 @@ NetClient::~NetClient()
 {
 	if (client)
 	{
-		// send Goodbye
-		NetBuffer buffer(PacketType::ClientDisconnected);
-		send(buffer);
-		enet_host_flush(client);
+		// say goodbye
+		enet_peer_disconnect_now(serverPeer, 0);
 
 		enet_host_destroy(client);
 	}

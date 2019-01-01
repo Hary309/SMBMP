@@ -10,6 +10,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Common.cpp" />
     <ClCompile Include="Hooks\GameInit_Hook.cpp" />
+    <ClCompile Include="Hooks\GameShutdown_Hook.cpp" />
     <ClCompile Include="Hooks\MainLoop_Hook.cpp" />
     <ClCompile Include="Hooks\PlayerLayer_Hook.cpp" />
     <ClCompile Include="Hooks\TextureLoad_Hook.cpp" />
@@ -42,6 +43,7 @@
     <ClInclude Include="Game\Vector.hpp" />
     <ClInclude Include="Game\Window.hpp" />
     <ClInclude Include="Hooks\GameInit_Hook.hpp" />
+    <ClInclude Include="Hooks\GameShutdown_Hook.hpp" />
     <ClInclude Include="Hooks\MainLoop_Hook.hpp" />
     <ClInclude Include="Hooks\PlayerLayer_Hook.hpp" />
     <ClInclude Include="Hooks\TextureLoad_Hook.hpp" />

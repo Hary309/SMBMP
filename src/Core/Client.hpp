@@ -23,6 +23,7 @@ public:
 	~Client();
 
 	void init();
+	void shutdown();
 
 	void update();
 	void draw_playerLayer();

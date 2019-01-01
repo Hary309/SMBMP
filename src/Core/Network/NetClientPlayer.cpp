@@ -42,7 +42,7 @@ void NetClientPlayer::update()
 
 		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime-recentPositionUpdateTime).count();
 
-		if (diff > 1000 / 30)
+		if (diff > 1000 / NetClient::TickRate)
 		{
 			NetBuffer buffer(PacketType::ClientPositionUpdate);
 			buffer.write(_player->pos.x);

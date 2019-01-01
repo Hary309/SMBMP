@@ -37,4 +37,6 @@ void Hook_GameInit()
 	GameInit_Retn = Offsets::getAddr(0x000679EF);
 
 	MemMgr::JmpHook(Offsets::getAddr(0x000679E8), (uintptr_t)Asm_GameInit);
+
+	printf("GameInit hook initialized!\n");
 }

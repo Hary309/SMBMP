@@ -41,4 +41,3 @@ void Hook_WndProc()
 
 	printf("WndProc hook initialized!\n");
 }
-

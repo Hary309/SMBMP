@@ -36,6 +36,14 @@ void Client::init()
 	netClient->connect("127.0.0.1", 1234);
 }
 
+void Client::shutdown()
+{
+	printf("Shutting down...\n");
+
+	netClient.reset();
+	netPlayerMgr.reset();
+}
+
 void Client::update()
 {
 	if (netPlayerMgr)

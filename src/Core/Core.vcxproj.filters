@@ -54,6 +54,9 @@
     <ClCompile Include="Hooks\WndProc_Hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hooks\GameShutdown_Hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Renderer.hpp">
@@ -141,6 +144,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\WndProc_Hook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\GameShutdown_Hook.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,6 +13,7 @@
 #include "Common.hpp"
 
 #include "GameInit_Hook.hpp"
+#include "GameShutdown_Hook.hpp"
 #include "WndProc_Hook.hpp"
 #include "PlayerLayer_Hook.hpp"
 #include "MainLoop_Hook.hpp"
@@ -23,6 +24,7 @@ void Hooks::init()
 {
 	//Hook_WndProc();
 	Hook_GameInit();
+	Hook_GameShutdown();
 	Hook_PlayerLayer();
 	Hook_MainLoop();
 

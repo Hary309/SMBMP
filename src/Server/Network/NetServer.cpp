@@ -61,7 +61,7 @@ void NetServer::update()
 			{
 				size_t id = reinterpret_cast<NetPlayer*>(event.peer->data)->getId();
 
-				printf("Client with id: %d lost connection!\n", id);
+				printf("Client with id: %d disconnected!\n", id);
 				clientMgr->remove(event.peer);
 
 				NetBuffer packet(PacketType::ClientDisconnected);
@@ -111,18 +111,6 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 			packet.write(client->getId());
 			packet.flush();
 
-			send(packet);
-		} break;
-		case PacketType::ClientDisconnected:
-		{
-			size_t id = reinterpret_cast<NetPlayer*>(peer->data)->getId();
-
-			printf("Client with id: %d disconnected!\n", id);
-			clientMgr->remove(peer);
-
-			NetBuffer packet(PacketType::ClientDisconnected);
-			packet.write(id);
-			packet.flush();
 			send(packet);
 		} break;
 		case PacketType::ClientCharacterChanged:

@@ -16,8 +16,6 @@ BOOL __stdcall DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved)
 			freopen("CONOUT$", "w", stdout);
 			freopen("CONIN$", "r", stdin);
 
-			printf("Uszanowanko\n");
-
 			client = std::make_unique<Client>(hinstDLL);
 		} break;
 		case DLL_PROCESS_DETACH:
