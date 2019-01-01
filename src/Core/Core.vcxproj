@@ -14,6 +14,7 @@
     <ClCompile Include="Hooks\PlayerLayer_Hook.cpp" />
     <ClCompile Include="Hooks\TextureLoad_Hook.cpp" />
     <ClCompile Include="Hooks\Hooks.cpp" />
+    <ClCompile Include="Hooks\WndProc_Hook.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Network\NetClient.cpp" />
     <ClCompile Include="Network\NetClientPlayer.cpp" />
@@ -45,6 +46,7 @@
     <ClInclude Include="Hooks\PlayerLayer_Hook.hpp" />
     <ClInclude Include="Hooks\TextureLoad_Hook.hpp" />
     <ClInclude Include="Hooks\Hooks.hpp" />
+    <ClInclude Include="Hooks\WndProc_Hook.hpp" />
     <ClInclude Include="Network\NetClient.hpp" />
     <ClInclude Include="Network\NetClientPlayer.hpp" />
     <ClInclude Include="Network\NetPlayer.hpp" />

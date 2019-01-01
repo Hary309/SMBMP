@@ -176,6 +176,34 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 				}
 			}
 		} break;
+		case PacketType::ClientAnimationChanged:
+		{
+			size_t id = 0;
+
+			int anim1, anim2, anim3;
+			
+			packet.read(id);
+			packet.read(anim1);
+			packet.read(anim2);
+			packet.read(anim3);
+
+			if (id != netPlayerMgr->getLocalPlayer()->getId())
+			{
+				auto player = netPlayerMgr->getPlayer(id);
+
+				if (player)
+				{
+					auto character = player->getCharacter();
+
+					if (character)
+					{
+						character->animation1 = anim1;
+						character->animation2 = anim2;
+						character->animation4 = anim3;
+					}
+				}
+			}
+		} break;
 	}
 }
 

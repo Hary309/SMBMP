@@ -51,6 +51,9 @@
     <ClCompile Include="Hooks\GameInit_Hook.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hooks\WndProc_Hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Renderer.hpp">
@@ -135,6 +138,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Hooks\GameInit_Hook.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hooks\WndProc_Hook.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

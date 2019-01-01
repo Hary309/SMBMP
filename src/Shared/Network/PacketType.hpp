@@ -9,5 +9,6 @@ enum class PacketType
 	ClientDisconnected,
 
 	ClientCharacterChanged,
-	ClientPositionUpdate
+	ClientPositionUpdate,
+	ClientAnimationChanged
 };

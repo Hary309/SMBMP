@@ -167,6 +167,25 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 
 			send(packet);
 		} break;
+		case PacketType::ClientAnimationChanged:
+		{
+			NetPlayer* client = reinterpret_cast<NetPlayer*>(peer->data);
+
+			int anim1, anim2, anim3;
+
+			packet.read(anim1);
+			packet.read(anim2);
+			packet.read(anim3);
+
+			packet.reset(PacketType::ClientAnimationChanged);
+			packet.write(client->getId());
+			packet.write(anim1);
+			packet.write(anim2);
+			packet.write(anim3);
+			packet.flush();
+
+			send(packet);
+		} break;
 	}
 }
 
