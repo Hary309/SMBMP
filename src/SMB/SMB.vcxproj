@@ -72,7 +72,6 @@
     <ClInclude Include="SMB\ReplayManager.hpp" />
     <ClInclude Include="SMB\SceneObject2D.hpp" />
     <ClInclude Include="SMB\Sprite.hpp" />
-    <ClInclude Include="SMB\Vector.hpp" />
     <ClInclude Include="SMB\Window.hpp" />
   </ItemGroup>
   <ItemGroup>

@@ -6,5 +6,5 @@ class Level
 {
 public:
 	char pad[7468];		// +0
-	Vector2 startPos;	// +7468
+	Vector2f startPos;	// +7468
 };

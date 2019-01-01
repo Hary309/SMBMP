@@ -11,7 +11,6 @@ NetPlayer::~NetPlayer()
 
 void NetPlayer::update()
 {
-
 }
 
 void NetPlayer::draw()
@@ -27,7 +26,7 @@ void NetPlayer::removeCharacter()
 	charactor.reset();
 }
 
-void NetPlayer::updatePos(const Vector2& pos)
+void NetPlayer::updatePos(const Vector2f& pos)
 {
 	if (charactor)
 	{

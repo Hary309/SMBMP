@@ -120,15 +120,18 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 		{
 			NetPlayer* client = reinterpret_cast<NetPlayer*>(peer->data);
 
-			float x, y;
+			Vector2f pos;
+
+			packet.read(pos.x);
+			packet.read(pos.y);
 
 			packet.read(x);
 			packet.read(y);
 
 			packet.reset(PacketType::ClientPositionUpdate);
 			packet.write(client->getId());
-			packet.write(x);
-			packet.write(y);
+			packet.write(pos.x);
+			packet.write(pos.y);
 			packet.flush();
 
 			send(packet);

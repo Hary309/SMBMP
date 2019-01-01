@@ -26,9 +26,6 @@
     <ClInclude Include="SMB.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SMB\Vector.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SMB\Sprite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

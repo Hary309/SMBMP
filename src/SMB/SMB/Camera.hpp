@@ -6,6 +6,6 @@ class Camera
 {
 public:
 	char pad[3296];		// +0
-	Vector2 pos;		// +3296
+	Vector2f pos;		// +3296
 	// +3304
 };

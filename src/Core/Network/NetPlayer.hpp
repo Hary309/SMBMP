@@ -22,7 +22,7 @@ public:
 	void changeCharacter(Characters::Type type);
 	void removeCharacter();
 
-	void updatePos(const Vector2& pos);
+	void updatePos(const Vector2f& pos);
 
 	size_t getId() const { return id; }
 	MeatBoyCharactor* getCharacter() const { return charactor.get(); }

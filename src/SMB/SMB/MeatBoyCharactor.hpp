@@ -15,9 +15,9 @@ class MeatBoyCharactor //: public SceneObject2D
 public:
 	MeatBoyCharactorVTable* vtable; // +0
 	char pad1[128];				// +4
-	Vector2 pos;				// +132
+	Vector2f pos;				// +132
 	char pad2[0x10];			// +140
-	Vector2 velocity;			// +156 0x9C
+	Vector2f velocity;			// +156 0x9C
 	char pad3[0x34];			// +164 
 	MeatBoyDisplay* display;	// +216
 	char pad4[1746];			// +220 
@@ -27,7 +27,7 @@ public:
 	int unk2;					// +1980
 	MeatBoyCharactor** ghosts;	// +1984 0x7C0 Array of pointers pointing to ghosts (Kurwa tablice wskaźników do duszków xD)
 	char pad5[88];				// +1988
-	Vector2 renderPos;			// +2076
+	Vector2f renderPos;			// +2076
 	char pad6[440];				// +2084
 	ReplayManager* replayMgr;	// +2524 0x9DC
 	char pad7[12];				// +2528
@@ -38,8 +38,9 @@ public:
 	int ghostIndex;				// +2628 
 	// +2552
 
+
 public:
-	void setPosition(Vector2 pos)
+	void setPosition(const Vector2f& pos)
 	{
 		this->pos = pos;
 		this->renderPos = pos;

@@ -17,7 +17,8 @@ class LevelManager;
 class Level;
 class Display;
 
-#include "SMB/Vector.hpp"
+#include <Vector2.hpp>
+
 #include "SMB/RenderLayerObject.hpp"
 #include "SMB/SceneObject2D.hpp"
 #include "SMB/ReplayManager.hpp"

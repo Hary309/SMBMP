@@ -136,7 +136,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 		case PacketType::ClientPositionUpdate:
 		{
 			size_t id = 0;
-			Vector2 pos;
+			Vector2f pos;
 
 			packet.read(id);
 			packet.read(pos.x);
