@@ -1,5 +1,7 @@
 #include "NetPlayer.hpp"
 
+#include "NetClient.hpp"
+
 NetPlayer::NetPlayer(size_t id)
 	: id(id)
 {
@@ -11,11 +13,19 @@ NetPlayer::~NetPlayer()
 
 void NetPlayer::update()
 {
+	if (charactor)
+	{
+		float alpha = float(GetTickCount() - interptStartTime) / (1000 / NetClient::TickRate);
+
+		auto lerp = Vector2f::lerp(interptStatPos, interptEndPos, alpha);
+
+		charactor->setPosition(interptStatPos + lerp);
+	}
 }
 
 void NetPlayer::draw()
 {
-	if (charactor)
+	if (charactor)		
 	{
 		charactor->draw();
 	}
@@ -26,11 +36,13 @@ void NetPlayer::removeCharacter()
 	charactor.reset();
 }
 
-void NetPlayer::updatePos(const Vector2f& pos)
+void NetPlayer::setPosition(const Vector2f& pos)
 {
 	if (charactor)
 	{
-		charactor->setPosition(pos);
+		interptStartTime = GetTickCount();
+		interptStatPos = interptEndPos;
+		interptEndPos = pos;
 	}
 }
 

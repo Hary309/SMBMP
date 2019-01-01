@@ -107,7 +107,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 				if (characterType != -1)
 					player->changeCharacter(static_cast<Characters::Type>(characterType));
 
-				player->updatePos(pos);
+				player->setPosition(pos);
 
 				printf("Adding player with id: %d\n", id);
 			}
@@ -170,7 +170,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 
 				if (player)
 				{
-					player->updatePos(pos);
+					player->setPosition(pos);
 				}
 			}
 		} break;

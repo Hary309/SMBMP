@@ -15,7 +15,7 @@ private:
 	NetPlayerManager* netPlayerMgr = nullptr;
 
 public:
-	static constexpr int TickRate = 30;
+	static constexpr int TickRate = 15;
 
 private:
 	void processPacket(NetBuffer& packet, ENetPeer* peer);

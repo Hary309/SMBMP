@@ -38,9 +38,9 @@ void NetClientPlayer::update()
 	{
 		auto _player = *player;
 
-		time_point currentTime = std::chrono::steady_clock::now();
+		auto currentTime = GetTickCount();
 
-		auto diff = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime-recentPositionUpdateTime).count();
+		auto diff = currentTime - recentPositionUpdateTime;
 
 		if (diff > 1000 / NetClient::TickRate)
 		{

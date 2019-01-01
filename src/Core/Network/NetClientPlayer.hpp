@@ -1,21 +1,18 @@
 ﻿#pragma once
 
-#include <chrono>
+#include <stddef.h>
 
 #include <SMB.hpp>
 
 class NetClientPlayer
 {
 private:
-	using time_point = std::chrono::steady_clock::time_point;
-
-private:
 	size_t id = 0;
 	MeatBoyCharactor** player = nullptr;
 
 	MeatBoyCharactor* recentPlayerPtr = nullptr;
 
-	time_point recentPositionUpdateTime;
+	uint32_t recentPositionUpdateTime;
 
 public:
 	NetClientPlayer();

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <memory>
+#include <stddef.h>
 
 #include <SMB.hpp>
 
@@ -12,6 +13,12 @@ private:
 
 	Characters::Type characterType = Characters::Type::DefaultMeatBoy;
 
+	uint32_t interptStartTime;
+	uint32_t interptEndTime;
+
+	Vector2f interptStatPos;
+	Vector2f interptEndPos;
+
 public:
 	NetPlayer(size_t id);
 	~NetPlayer();
@@ -22,7 +29,7 @@ public:
 	void changeCharacter(Characters::Type type);
 	void removeCharacter();
 
-	void updatePos(const Vector2f& pos);
+	void setPosition(const Vector2f& pos);
 
 	size_t getId() const { return id; }
 	MeatBoyCharactor* getCharacter() const { return charactor.get(); }
