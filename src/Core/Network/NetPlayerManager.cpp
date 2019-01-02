@@ -32,7 +32,7 @@ void NetPlayerManager::draw_playerLayer()
 	}
 }
 
-NetPlayer* NetPlayerManager::add(size_t id)
+NetPlayer* NetPlayerManager::add(PlayerId id)
 {
 	auto player = new NetPlayer(id);
 
@@ -41,7 +41,7 @@ NetPlayer* NetPlayerManager::add(size_t id)
 	return player;
 }
 
-void NetPlayerManager::remove(size_t id)
+void NetPlayerManager::remove(PlayerId id)
 {
 	auto it = std::find_if(players.begin(), players.end(), [&](auto& player) { return player->getId() == id; });
 
@@ -61,7 +61,7 @@ void NetPlayerManager::remove(NetPlayer* player)
 	}
 }
 
-NetPlayer* NetPlayerManager::getPlayer(size_t id)
+NetPlayer* NetPlayerManager::getPlayer(PlayerId id)
 {
 	auto it = std::find_if(players.begin(), players.end(), [&](auto& player) { return player->getId() == id; });
 	

@@ -5,6 +5,8 @@
 
 #include <enet/enet.h>
 
+#include <Types.hpp>
+
 class NetPlayer;
 
 class ClientManager
@@ -16,7 +18,7 @@ private:
 private:
 	Holder_t<NetPlayer> clients;
 
-	size_t lastId = 0;
+	PlayerId lastId = 0;
 
 public:
 	ClientManager();
@@ -27,10 +29,10 @@ public:
 	void remove(ENetPeer* peer);
 	void remove(NetPlayer* client);
 
-	NetPlayer* getPlayer(size_t id);
+	NetPlayer* getPlayer(PlayerId id);
 	NetPlayer* getPlayer(ENetPeer* peer);
 
-	size_t getSize() const { return clients.size(); }
+	uint32_t getSize() const { return static_cast<uint32_t>(clients.size()); }
 	
 	const auto& getClients() const { return clients; }
 };

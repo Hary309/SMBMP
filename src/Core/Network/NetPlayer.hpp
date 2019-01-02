@@ -5,10 +5,12 @@
 
 #include <SMB.hpp>
 
+#include <Types.hpp>
+
 class NetPlayer
 {
 private:
-	size_t id;
+	PlayerId id;
 	std::unique_ptr<MeatBoyCharactor> charactor;
 
 	Characters::Type characterType = Characters::Type::DefaultMeatBoy;
@@ -20,7 +22,7 @@ private:
 	Vector2f interptEndPos;
 
 public:
-	NetPlayer(size_t id);
+	NetPlayer(PlayerId id);
 	~NetPlayer();
 
 	void update();
@@ -31,6 +33,6 @@ public:
 
 	void setPosition(const Vector2f& pos);
 
-	size_t getId() const { return id; }
+	PlayerId getId() const { return id; }
 	MeatBoyCharactor* getCharacter() const { return charactor.get(); }
 };

@@ -82,20 +82,20 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 	{
 		case PacketType::ClientInitialData:
 		{
-			size_t id = 0;
+			PlayerId id = 0;
 			packet.read(id);
 			netPlayerMgr->getLocalPlayer()->setId(id);
 
 			printf("My id: %d\n", id);
 
-			int playersNumber = 0;
+			uint32_t playersNumber = 0;
 
 			packet.read(playersNumber);
 
 			Vector2f pos;
 			int characterType = -1;
 
-			for (int i = 0; i < playersNumber; ++i)
+			for (uint32_t i = 0; i < playersNumber; ++i)
 			{
 				packet.read(id);
 				packet.read(pos.x);
@@ -114,7 +114,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 		} break;
 		case PacketType::ClientConnected:
 		{
-			size_t id = 0;
+			PlayerId id = 0;
 			packet.read(id);
 
 			if (id != netPlayerMgr->getLocalPlayer()->getId())
@@ -126,7 +126,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 		} break;
 		case PacketType::ClientDisconnected:
 		{
-			size_t id = 0;
+			PlayerId id = 0;
 			packet.read(id);
 			netPlayerMgr->remove(id);
 
@@ -134,7 +134,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 		} break;
 		case PacketType::ClientCharacterChanged:
 		{
-			size_t id = 0;
+			PlayerId id = 0;
 			int characterType = -1;
 
 			packet.read(id);
@@ -157,7 +157,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 		} break;
 		case PacketType::ClientPositionUpdate:
 		{
-			size_t id = 0;
+			PlayerId id = 0;
 			Vector2f pos;
 
 			packet.read(id);
@@ -176,7 +176,7 @@ void NetClient::processPacket(NetBuffer& packet, ENetPeer* peer)
 		} break;
 		case PacketType::ClientAnimationChanged:
 		{
-			size_t id = 0;
+			PlayerId id = 0;
 
 			int anim1, anim2, anim3;
 			

@@ -4,10 +4,12 @@
 
 #include <SMB.hpp>
 
+#include <Types.hpp>
+
 class NetClientPlayer
 {
 private:
-	size_t id = 0;
+	PlayerId id = 0;
 	MeatBoyCharactor** player = nullptr;
 
 	MeatBoyCharactor* recentPlayerPtr = nullptr;
@@ -20,8 +22,8 @@ public:
 
 	void update();
 
-	void setId(size_t _id) { id = _id; }
-	size_t getId() const { return id; }
+	void setId(PlayerId _id) { id = _id; }
+	PlayerId getId() const { return id; }
 
 	MeatBoyCharactor* getPlayer() const { return *player; }
 };

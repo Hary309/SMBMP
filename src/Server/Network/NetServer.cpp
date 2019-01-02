@@ -5,6 +5,8 @@
 #include "Network/NetPlayer.hpp"
 #include "ClientManager.hpp"
 
+#include <Types.hpp>
+
 NetServer::NetServer(ClientManager* clientMgr)
 	: clientMgr(clientMgr)
 {
@@ -59,7 +61,7 @@ void NetServer::update()
 			} break;
 			case ENET_EVENT_TYPE_DISCONNECT:
 			{
-				size_t id = reinterpret_cast<NetPlayer*>(event.peer->data)->getId();
+				PlayerId id = reinterpret_cast<NetPlayer*>(event.peer->data)->getId();
 
 				printf("Client with id: %d disconnected!\n", id);
 				clientMgr->remove(event.peer);
@@ -87,8 +89,6 @@ void NetServer::processPacket(NetBuffer& packet, ENetPeer* peer)
 			packet.write(client->getId());
 
 			packet.write(clientMgr->getSize() - 1);
-
-			printf("Sending: %d\n", clientMgr->getSize() - 1);
 
 			auto& clients = clientMgr->getClients();
 

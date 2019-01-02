@@ -25,13 +25,13 @@ public:
 	void update();
 	void draw_playerLayer();
 
-	NetPlayer* add(size_t id);
-	void remove(size_t id);
+	NetPlayer* add(PlayerId id);
+	void remove(PlayerId id);
 	void remove(NetPlayer* player);
 
-	NetPlayer* getPlayer(size_t id);
+	NetPlayer* getPlayer(PlayerId id);
 
-	size_t getSize() const { return players.size(); }
+	uint32_t getSize() const { return static_cast<uint32_t>(players.size()); }
 
 	NetClientPlayer* getLocalPlayer() { return &localPlayer; }
 	const auto& getPlayers() const { return players; }

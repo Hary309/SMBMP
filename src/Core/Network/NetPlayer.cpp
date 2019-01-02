@@ -2,7 +2,7 @@
 
 #include "NetClient.hpp"
 
-NetPlayer::NetPlayer(size_t id)
+NetPlayer::NetPlayer(PlayerId id)
 	: id(id)
 {
 }

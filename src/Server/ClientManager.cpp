@@ -43,7 +43,7 @@ void ClientManager::remove(NetPlayer* client)
 	}
 }
 
-NetPlayer* ClientManager::getPlayer(size_t id)
+NetPlayer* ClientManager::getPlayer(PlayerId id)
 {
 	auto it = std::find_if(clients.begin(), clients.end(), [&](auto& _client) { return _client->getId() == id; });
 
