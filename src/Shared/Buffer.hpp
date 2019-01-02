@@ -1,9 +1,51 @@
 #pragma once
 
 #include <string>
-#include <string_view>
-#include <cstdint>
 #include <type_traits>
+#include <utility>
+#include <cstring>
+#include <cstdint>
+
+namespace detail
+{
+	template<typename T>
+	inline uint32_t write(const T& value, uint8_t* data)
+	{
+		static_assert(std::is_fundamental_v<T>, "Only primitive types");
+
+		constexpr size_t typeSize = sizeof(T);
+
+		memcpy(data, &value, typeSize);
+
+		return typeSize;
+	}
+
+	template<>
+	inline uint32_t write<std::string>(const std::string& str, uint8_t* data)
+	{
+		return static_cast<uint32_t>(str.copy(static_cast<char*>(static_cast<void*>(data)), str.length())) + 1;
+	}
+
+	template<typename T>
+	inline uint32_t read(T& value, uint8_t* data)
+	{
+		static_assert(std::is_fundamental_v<T>, "Only primitive types");
+
+		constexpr size_t typeSize = sizeof(T);
+
+		memcpy(&value, data, typeSize);
+
+		return typeSize;
+	}
+
+	template <>
+	inline uint32_t read<std::string>(std::string& str, uint8_t* data)
+	{
+		str = std::string(static_cast<const char*>(static_cast<void*>(data)));
+
+		return static_cast<uint32_t>(str.length() + 1);
+	}
+}
 
 class Buffer
 {
@@ -11,44 +53,15 @@ public:
 	constexpr static int MAX_PACKET_SIZE = 64;
 
 private:
-	size_t dataPointer = 0;
-	size_t dataSize = 0;
+	uint32_t dataPointer = 0;
+	uint32_t dataSize = 0;
 
 	uint8_t data[MAX_PACKET_SIZE] = { 0 };
-
-private:
-	template <size_t Offset, typename T>
-	void writeByte(T value)
-	{
-		using RefArray_t = char[sizeof(T)];
-
-		data[dataPointer++] = (reinterpret_cast<RefArray_t&>(value)[Offset] & 0xFF);
-	}
-
-	template<typename T, size_t... Is>
-	void writeBytes(T value, std::index_sequence<Is...>)
-	{
-		(writeByte<Is>(value), ...);
-	}
-
-	template<size_t Offset, typename T>
-	void readByte(T& value)
-	{
-		using RefArray_t = char[sizeof(T)];
-
-		(reinterpret_cast<RefArray_t&>(value)[Offset]) = data[dataPointer++];
-	}
-
-	template<typename T, size_t... Is>
-	void readBytes(T& value, std::index_sequence<Is...>)
-	{
-		(readByte<Is>(value), ...);
-	}
 
 public:
 	Buffer() = default;
 
-	Buffer(uint8_t* data, size_t size)
+	Buffer(uint8_t* data, uint32_t size)
 		: dataPointer(0), dataSize(size)
 	{
 		memcpy(this->data, data, size);
@@ -56,28 +69,17 @@ public:
 
 	~Buffer() = default;
 
+
 	template<typename T>
 	void write(const T& value)
 	{
-		static_assert(std::is_fundamental_v<T>, "Only primitive types");
-
-		constexpr size_t typeSize = sizeof(T);
-
-		if (typeSize + dataPointer >= MAX_PACKET_SIZE)
-			return;
-
-		writeBytes(value, std::make_index_sequence<typeSize>());
+		dataPointer += detail::write<T>(value, &data[dataPointer]);
 	}
 
-	template<>
-	void write<std::string>(const std::string& str)
+	template<typename T>
+	void read(T& value)
 	{
-		for (size_t i = 0; i < str.size(); ++i)
-		{
-			data[dataPointer++] = static_cast<char>(str[i]);
-		}
-
-		data[dataPointer++] = '\0';
+		dataPointer += detail::read<T>(value, &data[dataPointer]);
 	}
 
 	void flush()
@@ -86,34 +88,7 @@ public:
 		dataPointer = 0;
 	}
 
-	template<typename T>
-	void read(T& value)
-	{
-		static_assert(std::is_fundamental_v<T>, "Only primitive types");
-
-		constexpr size_t typeSize = sizeof(T);
-
-		if (dataPointer - typeSize < 0)
-			return;
-
-		readBytes(value, std::make_index_sequence<typeSize>());
-	}
-
-	template <>
-	void read<std::string>(std::string& str)
-	{
-		while (data[dataPointer] != '\0') 
-		{
-			str += data[dataPointer];
-
-			dataPointer++;
-		}
-
-		// skip Null-terminated (zero)
-		dataPointer++;
-	}
-
-	size_t getDataSize() const { return dataSize; }
+	uint32_t getDataSize() const { return dataSize; }
 
 	auto getData() const { return data; }
 
@@ -129,7 +104,7 @@ public:
 	{
 		for (int i = start; i < end; i++)
 		{
-			printf("%X ", data[i]);
+			printf("%02X ", data[i]);
 		}
 
 		printf("\n");
