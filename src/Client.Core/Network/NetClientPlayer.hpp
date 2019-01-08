@@ -4,7 +4,7 @@
 
 #include <SMB.hpp>
 
-#include <Types.hpp>
+#include <Shared.Types.hpp>
 
 class NetClientPlayer
 {

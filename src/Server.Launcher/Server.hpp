@@ -1,7 +1,7 @@
 ﻿#pragma once
 
-#include "ClientManager.hpp"
-#include "Network/NetServer.hpp"
+#include <Network/ClientManager.hpp>
+#include <Network/NetServer.hpp>
 
 class Server
 {

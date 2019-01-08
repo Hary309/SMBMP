@@ -5,6 +5,8 @@
 
 #include <SMB.hpp>
 
+#include <Shared.Network.hpp>
+
 #include "Network/NetClient.hpp"
 #include "Network/NetPlayerManager.hpp"
 
@@ -33,7 +35,7 @@ void Client::init()
 	netPlayerMgr = std::make_unique<NetPlayerManager>();
 	netClient = std::make_unique<NetClient>(netPlayerMgr.get());
 
-	netClient->connect("127.0.0.1", 1234);
+	netClient->connect("127.0.0.1", ServerPort);
 }
 
 void Client::shutdown()

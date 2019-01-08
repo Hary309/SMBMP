@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-#include "Network/NetPlayer.hpp"
+#include "NetPlayer.hpp"
 
 ClientManager::ClientManager()
 {

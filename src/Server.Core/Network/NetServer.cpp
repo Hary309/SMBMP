@@ -2,10 +2,10 @@
 
 #include <sstream>
 
-#include "Network/NetPlayer.hpp"
+#include "NetPlayer.hpp"
 #include "ClientManager.hpp"
 
-#include <Types.hpp>
+#include <Shared.Types.hpp>
 
 NetServer::NetServer(ClientManager* clientMgr)
 	: clientMgr(clientMgr)

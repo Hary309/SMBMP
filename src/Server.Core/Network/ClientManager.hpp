@@ -5,7 +5,7 @@
 
 #include <enet/enet.h>
 
-#include <Types.hpp>
+#include <Shared.Types.hpp>
 
 class NetPlayer;
 

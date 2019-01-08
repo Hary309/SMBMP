@@ -64,7 +64,8 @@ bool InjectDll(const HANDLE process, const char *const dllPath)
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 
-	const char installFolder[] = "E:\\SteamLibrary\\steamapps\\common\\Super Meat Boy\\";
+	//const char installFolder[] = ".";
+	const char installFolder[] = "D:\\SteamLibrary\\steamapps\\common\\Super Meat Boy\\";
 	const char ExecutableName[] = "SuperMeatBoy.exe";
 	const char commandLine[] = "-devmode";
 

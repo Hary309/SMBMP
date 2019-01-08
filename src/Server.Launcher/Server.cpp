@@ -1,5 +1,7 @@
 #include "Server.hpp"
 
+#include <Shared.Network.hpp>
+
 Server::Server()
 	: clientMgr(), netServer(&clientMgr)
 {
@@ -11,7 +13,7 @@ Server::~Server()
 
 bool Server::init()
 {
-	netServer.init(1234);
+	netServer.init(ServerPort);
 	running = true;
 
 	return true;

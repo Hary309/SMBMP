@@ -2,7 +2,7 @@
 
 #include <enet/enet.h>
 
-#include <Types.hpp>
+#include <Shared.Types.hpp>
 #include <Vector2.hpp>
 
 class NetPlayer
