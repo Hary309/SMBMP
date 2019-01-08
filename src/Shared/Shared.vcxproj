@@ -16,7 +16,8 @@
     <ClInclude Include="Memory\Offsets.hpp" />
     <ClInclude Include="Network\NetBuffer.hpp" />
     <ClInclude Include="Network\PacketType.hpp" />
-    <ClInclude Include="Types.hpp" />
+    <ClInclude Include="Shared.Network.hpp" />
+    <ClInclude Include="Shared.Types.hpp" />
     <ClInclude Include="Vector2.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

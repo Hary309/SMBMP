@@ -70,7 +70,7 @@ constexpr Vector2<T> operator -(const Vector2<T>& left, const Vector2<T>& right)
 template <typename T>
 constexpr Vector2<T> operator *(const Vector2<T>& left, T right)
 {
-	return Vector2<T>(right.x * left, right.y * left);
+	return Vector2<T>(left.x * right, left.y * right);
 }
 
 template <typename T>

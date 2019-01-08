@@ -11,8 +11,6 @@ namespace detail
 	template<typename T>
 	inline uint32_t write(const T& value, uint8_t* data)
 	{
-		static_assert(std::is_fundamental_v<T>, "Only primitive types");
-
 		constexpr size_t typeSize = sizeof(T);
 
 		memcpy(data, &value, typeSize);
@@ -29,8 +27,6 @@ namespace detail
 	template<typename T>
 	inline uint32_t read(T& value, uint8_t* data)
 	{
-		static_assert(std::is_fundamental_v<T>, "Only primitive types");
-
 		constexpr size_t typeSize = sizeof(T);
 
 		memcpy(&value, data, typeSize);

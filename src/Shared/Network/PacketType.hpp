@@ -4,11 +4,22 @@
 
 enum class PacketType
 {
+	// game
 	ClientConnected,
 	ClientInitialData,
 	ClientDisconnected,
 
 	ClientCharacterChanged,
 	ClientPositionUpdate,
-	ClientAnimationChanged
+	ClientAnimationChanged,
+
+
+	// master server
+	AddServer,
+
+	RequestServersList,
+	RequestServerAddress,
+
+	ServerAddress
 };
+
