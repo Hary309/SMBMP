@@ -1,13 +1,7 @@
 #include <Windows.h>
 #include <stdio.h>
 
-/**
- * Inject DLL into process.
- *
- * @param[in] process Process handle.
- * @param[in] dllPath DLL path.
- * @return @c false on case of injection failure @c true otherwise.
- */
+
 bool InjectDll(const HANDLE process, const char *const dllPath)
 {
 	const size_t libPathLen = strlen(dllPath) + 1;
@@ -56,16 +50,9 @@ bool InjectDll(const HANDLE process, const char *const dllPath)
 	return true;
 }
 
-/**
- * Launcher entry point.
- *
- * @see https://msdn.microsoft.com/en-us/library/windows/desktop/ms633559(v=vs.85).aspx
- */
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
-
-	//const char installFolder[] = ".";
-	const char installFolder[] = "D:\\SteamLibrary\\steamapps\\common\\Super Meat Boy\\";
+	const char installFolder[] = ".";
 	const char ExecutableName[] = "SuperMeatBoy.exe";
 	const char commandLine[] = "-devmode";
 
@@ -121,5 +108,3 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ResumeThread(processInformation.hThread);
 	return 1;
 }
-
-/* EOF */
