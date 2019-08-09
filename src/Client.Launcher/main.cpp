@@ -90,11 +90,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		}
 	}
 
-	sprintf_s(injectorDllPath, "%s\\core.dll", cPath);
+	sprintf_s(injectorDllPath, "%s\\Client.Core.dll", cPath);
 
 	if (GetFileAttributes(injectorDllPath) == INVALID_FILE_ATTRIBUTES)
 	{
-		MessageBox(NULL, "Cannot find core.dll file.", "Error", MB_ICONERROR);
+		MessageBox(NULL, "Cannot find Client.Core.dll file.", "Error", MB_ICONERROR);
 		return 0;
 	}
 
