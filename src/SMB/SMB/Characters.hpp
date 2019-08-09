@@ -2,7 +2,7 @@
 
 #include "SMB.hpp"
 
-#include <Memory/Offsets.hpp>
+#include <SMB/Offsets.hpp>
 
 struct Characters
 {
@@ -51,8 +51,8 @@ struct Characters
 			pop esi
 
 			push valueAddr
-			mov ecx, GameOffsets::Characters_ptr
-			call GameOffsets::Characters_getCharacters
+			mov ecx, Offsets::Characters_ptr
+			call Offsets::Characters_getCharacters
 			mov result, eax
 		}
 

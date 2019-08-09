@@ -9,7 +9,7 @@ DefaultMeatBoy::DefaultMeatBoy(MeatBoyCharactor* player, int number)
 		push number
 		push player
 		mov ecx, this
-		call GameOffsets::DefaultMeatBoy_DefaultMeatBoy
+		call Offsets::DefaultMeatBoy_DefaultMeatBoy
 	}
 }
 

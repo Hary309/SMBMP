@@ -25,7 +25,7 @@ public:
 
 	static GSuperMeatBoy* get()
 	{
-		return *(GSuperMeatBoy**)(GameOffsets::GSuperMeatBoy_ptr);
+		return *(GSuperMeatBoy**)(Offsets::GSuperMeatBoy_ptr);
 	}
 };
 

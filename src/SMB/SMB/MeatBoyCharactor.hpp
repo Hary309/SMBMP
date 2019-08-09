@@ -54,7 +54,7 @@ public:
 		{
 			push 0
 			push character
-			call GameOffsets::MeatBoyCharactor_cloneCharactor
+			call Offsets::MeatBoyCharactor_cloneCharactor
 			mov result, eax
 		}
 

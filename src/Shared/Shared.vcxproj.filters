@@ -2,11 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Memory\MemMgr.cpp" />
-    <ClCompile Include="Memory\Offsets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Memory\MemMgr.hpp" />
-    <ClInclude Include="Memory\Offsets.hpp" />
     <ClInclude Include="Network\PacketType.hpp" />
     <ClInclude Include="Buffer.hpp" />
     <ClInclude Include="Network\NetBuffer.hpp" />

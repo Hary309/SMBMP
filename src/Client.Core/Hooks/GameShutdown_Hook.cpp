@@ -1,7 +1,7 @@
 #include "GameShutdown_Hook.hpp"
 
 #include <Memory/MemMgr.hpp>
-#include <Memory/Offsets.hpp>
+#include <SMB/Offsets.hpp>
 
 #include "Client.hpp"
 

@@ -17,6 +17,6 @@ public:
 
 	static GSuperMeatBoy_RenderLayer* get()
 	{
-		return *(GSuperMeatBoy_RenderLayer**)(GameOffsets::GSuperMeatBoy_RenderLayer_ptr);
+		return *(GSuperMeatBoy_RenderLayer**)(Offsets::GSuperMeatBoy_RenderLayer_ptr);
 	}
 };

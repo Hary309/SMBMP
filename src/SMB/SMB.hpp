@@ -8,7 +8,7 @@
 
 #include <d3d.h>
 
-#include "GameOffsets.hpp"
+#include "SMB/Offsets.hpp"
 
 class MeatBoyCharactor;
 class MeatBoyDisplay;

@@ -1,9 +1,12 @@
 #pragma once
 
-#include "SMB.hpp"
+#include <stdint.h>
 
-class GameOffsets
+class Offsets
 {
+private:
+	static uintptr_t baseAddr;
+
 public:
 	static uintptr_t Characters_ptr;
 	static uintptr_t Characters_getCharacters;
@@ -24,5 +27,10 @@ public:
 
 	static uintptr_t Window_ptr;
 
+public:
 	static void init();
+
+	static uintptr_t getAddr(uintptr_t addr);
+
+	static uintptr_t getBaseAddr();
 };

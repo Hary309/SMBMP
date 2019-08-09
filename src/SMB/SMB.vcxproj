@@ -56,7 +56,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="GameOffsets.hpp" />
+    <ClInclude Include="SMB\Offsets.hpp" />
     <ClInclude Include="SMB.hpp" />
     <ClInclude Include="SMB\Camera.hpp" />
     <ClInclude Include="SMB\Characters.hpp" />
@@ -81,6 +81,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SMB\Characters\DefaultMeatBoy.cpp" />
+    <ClCompile Include="SMB\Offsets.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

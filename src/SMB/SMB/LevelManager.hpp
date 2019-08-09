@@ -20,12 +20,12 @@ public:
 		{
 			push nameAddr
 			mov ecx, this
-			call GameOffsets::LevelManager_loadLevel
+			call Offsets::LevelManager_loadLevel
 		}
 	}
 
 	static LevelManager* get()
 	{
-		return *(LevelManager**)(GameOffsets::LevelManager_ptr);
+		return *(LevelManager**)(Offsets::LevelManager_ptr);
 	}
 };

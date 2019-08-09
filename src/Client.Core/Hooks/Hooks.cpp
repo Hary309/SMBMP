@@ -5,7 +5,7 @@
 #include <vector>
 #include <fstream>
 
-#include <Memory/Offsets.hpp>
+#include <SMB/Offsets.hpp>
 #include <Memory/MemMgr.hpp>
 
 #include <SMB.hpp>

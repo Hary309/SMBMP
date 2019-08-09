@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 
-#include <Memory/Offsets.hpp>
+#include <SMB/Offsets.hpp>
 #include "Memory/MemMgr.hpp"
 
 uintptr_t LoadTextureAddrCall;

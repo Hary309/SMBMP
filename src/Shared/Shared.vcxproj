@@ -8,12 +8,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Memory\MemMgr.cpp" />
-    <ClCompile Include="Memory\Offsets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Buffer.hpp" />
     <ClInclude Include="Memory\MemMgr.hpp" />
-    <ClInclude Include="Memory\Offsets.hpp" />
     <ClInclude Include="Network\NetBuffer.hpp" />
     <ClInclude Include="Network\PacketType.hpp" />
     <ClInclude Include="Shared.Network.hpp" />

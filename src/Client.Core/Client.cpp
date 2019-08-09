@@ -1,6 +1,6 @@
 #include "Client.hpp"
 
-#include <Memory/Offsets.hpp>
+#include <SMB/Offsets.hpp>
 #include <Hooks/Hooks.hpp>
 
 #include <SMB.hpp>
@@ -20,7 +20,7 @@ Client::Client(HINSTANCE hInstance)
 	Client::hInstance = hInstance;
 
 	Offsets::init();
-	GameOffsets::init();
+	Offsets::init();
 	Hooks::init();
 }
 

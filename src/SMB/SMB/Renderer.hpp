@@ -13,6 +13,6 @@ public:
 
 	static Renderer* get()
 	{
-		return *(Renderer**)(GameOffsets::Renderer_ptr);
+		return *(Renderer**)(Offsets::Renderer_ptr);
 	}
 };

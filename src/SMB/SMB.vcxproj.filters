@@ -21,6 +21,9 @@
     <ClCompile Include="SMB\Characters\DefaultMeatBoy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SMB\Offsets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SMB.hpp">
@@ -39,9 +42,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SMB\LevelManager.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOffsets.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SMB\Camera.hpp">
@@ -78,6 +78,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SMB\MeatBoyDisplay.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SMB\Offsets.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,6 +11,6 @@ public:
 
 	static GMeatHUD* get()
 	{
-		return *(GMeatHUD**)(GameOffsets::GMeatHUD_ptr);
+		return *(GMeatHUD**)(Offsets::GMeatHUD_ptr);
 	}
 };

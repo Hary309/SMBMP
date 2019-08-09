@@ -20,6 +20,6 @@ public:
 
 	static Window* get()
 	{
-		return *(Window**)(GameOffsets::Window_ptr);
+		return *(Window**)(Offsets::Window_ptr);
 	}
 };
