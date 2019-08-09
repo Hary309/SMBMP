@@ -20,7 +20,6 @@ Client::Client(HINSTANCE hInstance)
 	Client::hInstance = hInstance;
 
 	Offsets::init();
-	Offsets::init();
 	Hooks::init();
 }
 
