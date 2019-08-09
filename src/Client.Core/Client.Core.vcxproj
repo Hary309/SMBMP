@@ -89,7 +89,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>Client.Core</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <OutDir>..\..\bin\</OutDir>
     <IntDir>..\..\obj\$(ProjectName)\</IntDir>
   </PropertyGroup>
