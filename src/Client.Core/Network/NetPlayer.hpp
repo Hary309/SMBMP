@@ -15,10 +15,10 @@ private:
 
 	Characters::Type characterType = Characters::Type::DefaultMeatBoy;
 
-	uint32_t interptStartTime;
-	uint32_t interptEndTime;
+	uint64_t interptStartTime = 0;
+	uint64_t interptEndTime = 0;
 
-	Vector2f interptStatPos;
+	Vector2f interptStartPos;
 	Vector2f interptEndPos;
 
 public:

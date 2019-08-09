@@ -96,7 +96,7 @@ public:
 		memset(data, 0, MAX_PACKET_SIZE);
 	}
 
-	void print(int start = 0, int end = MAX_PACKET_SIZE)
+	void printBytes(int start = 0, int end = MAX_PACKET_SIZE)
 	{
 		for (int i = start; i < end; i++)
 		{

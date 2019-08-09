@@ -15,11 +15,11 @@ void NetPlayer::update()
 {
 	if (charactor)
 	{
-		float alpha = float(GetTickCount() - interptStartTime) / (1000 / NetClient::TickRate);
+		float alpha = float(GetTickCount64() - interptStartTime) / (1000 / NetClient::TickRate);
 
-		auto lerp = Vector2f::lerp(interptStatPos, interptEndPos, alpha);
+		auto lerp = Vector2f::lerp(interptStartPos, interptEndPos, alpha);
 
-		charactor->setPosition(interptStatPos + lerp);
+		charactor->setPosition(interptStartPos + lerp);
 	}
 }
 
@@ -40,8 +40,8 @@ void NetPlayer::setPosition(const Vector2f& pos)
 {
 	if (charactor)
 	{
-		interptStartTime = GetTickCount();
-		interptStatPos = interptEndPos;
+		interptStartTime = GetTickCount64();
+		interptStartPos = interptEndPos;
 		interptEndPos = pos;
 	}
 }

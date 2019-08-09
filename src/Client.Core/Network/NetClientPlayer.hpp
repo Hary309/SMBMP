@@ -14,7 +14,7 @@ private:
 
 	MeatBoyCharactor* recentPlayerPtr = nullptr;
 
-	uint32_t recentPositionUpdateTime;
+	uint64_t recentPositionUpdateTime = 0;
 
 public:
 	NetClientPlayer();

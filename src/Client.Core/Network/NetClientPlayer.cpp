@@ -33,12 +33,12 @@ void NetClientPlayer::update()
 		Client::get()->getNetClient()->send(buffer);
 	}
 
-	// detect player move
+	// send player's pos
 	if (*player)
 	{
 		auto _player = *player;
 
-		auto currentTime = GetTickCount();
+		auto currentTime = GetTickCount64();
 
 		auto diff = currentTime - recentPositionUpdateTime;
 
