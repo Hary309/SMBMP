@@ -1,6 +1,6 @@
 # SMBMP
 
-Prototype multiplayer mod for Super Meat Boy v1.2.5 Steam version
+Prototype multiplayer mod for Super Meat Boy v1.2.5 Steam edition
 
 ## Demo
 
