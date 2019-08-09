@@ -1,6 +1,16 @@
 # SMBMP
 
-Super Meat Boy Multiplayer Mod
+Multiplayer mod for Super Meat Boy v1.2.5
+
+## Demo
+
+[![Demo of multiplayer mod](https://img.youtube.com/vi/5aXjm1OHZyY/0.jpg)](https://www.youtube.com/watch?v=5aXjm1OHZyY)
+
+## About project
+
+From the beginning of project we wanted to create gamemode similar to [Race Mode DLC](https://store.steampowered.com/app/969710/Super_Meat_Boy_Race_Mode/) but through internet of course.
+Unfortunately Tommy Refenes (creator of SMB) didn't allow us to recreate Race Mode, so we just abandoned the project.
+In current state, mod only synchronizing players' character, animation and position.
 
 ## How to build
 
